@@ -1,4 +1,4 @@
-# SKYBnB
+# SKYBnB - AirBnB's Superior Cousin
 
 ## Database Schema Design
 
