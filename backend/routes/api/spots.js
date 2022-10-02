@@ -95,6 +95,166 @@ router.get('/:spotId', async (req, res) => {
   return res.json(detailsRes)
 });
 
+// Get all Reviews by a Spot's ID
+router.get('/:spotId/reviews', async (req, res) => {
+  const findSpot = await Spot.findByPk(req.params.spotId);
+
+  if (!findSpot) {
+    return res
+      .status(404)
+      .json({
+        message: "Spot couldn't be found",
+        statusCode: res.statusCode
+      });
+  };
+
+  const allReviews = await Review.findAll({
+    where: {
+      spotId: findSpot.id
+    },
+    include: [
+      {
+        model: User,
+        attributes: ['id', 'firstName', 'lastName']
+      },
+      {
+        model: ReviewImage,
+        attributes: ['id', 'url']
+      }
+    ]
+  });
+
+  return res.json({ Reviews: allReviews });
+});
+
+// Get all Bookings for a Spot based on the Spot's ID
+router.get('/:spotId/bookings', requireAuth, async (req, res) => {
+  const findSpot = await Spot.findByPk(req.params.spotId);
+
+  if (!findSpot) {
+    return res
+      .status(404)
+      .json({
+        message: "Spot couldn't be found",
+        statusCode: res.statusCode
+      });
+  };
+
+  const ownAllBookings = await Booking.findAll({
+    where: {
+      spotId: findSpot.id
+    },
+    include: [
+      {
+        model: User,
+        attributes: ['id', 'firstName', 'lastName']
+      }
+    ]
+  });
+
+  const guestAllBookings = await Booking.findAll({
+    where: {
+      spotId: findSpot.id
+    },
+    attributes: ['spotId', 'startDate', 'endDate']
+  });
+
+  if (req.user.id === findSpot.ownerId) {
+    return res.json ({ Bookings: ownAllBookings })
+  } else {
+    return res.json ({ Bookings: guestAllBookings })
+  };
+});
+
+
+// Create a Booking from a Spot based on the Spot's ID
+router.post('/:spotId/bookings', requireAuth, async (req, res) =>{
+  const { startDate, endDate } = req.body;
+
+  const findSpot = await Spot.findByPk(req.params.spotId);
+
+  if (!findSpot) {
+    return res
+      .status(404)
+      .json({
+        message: "Spot couldn't be found",
+        statusCode: res.statusCode
+      });
+  };
+
+  const allBookings = await Booking.findAll({
+    where: {
+      spotId: findSpot.id
+    }
+  });
+
+  if (endDate <= startDate) {
+    return res
+      .status(400)
+      .json({
+        message: 'Validation Error',
+        statusCode: res.statusCode,
+        errors: [{
+          endDate: 'endDate cannot be on or before startDate'
+        }]
+      })
+  };
+
+  for (let i = 0; i < allBookings.length; i++) {
+    if (allBookings[i].startDate >= startDate && allBookings[i].endDate <= endDate || allBookings[i].startDate <= startDate && allBookings[i].endDate >= endDate) {
+      return res
+        .status(403)
+        .json({
+          message: 'Sorry, this spot is already booked for the specified dates',
+          statusCode: 403,
+          errors: [{
+            startDate: 'Start date conflicts with an already existing booking',
+            endDate: 'End date conflicts with an already existing booking'
+          }]
+        })
+    }
+  };
+
+  const createBooking = await Booking.create({
+    spotId: findSpot.id,
+    userId: req.user.id,
+    startDate,
+    endDate
+  });
+
+  return res.json(createBooking);
+});
+
+// Create a Review for a Spot based on the Spot's ID
+
+// Add an Image to a Spot based on the Spot's ID
+router.post('/:spotId/images', requireAuth, async (req, res) => {
+  const { url, preview } = req.body;
+
+  const spot = await Spot.findByPk(req.params.spotId);
+
+  if (!spot) {
+    return res
+      .status(404)
+      .json({
+        message: "Spot couldn't be found",
+        statusCode: res.statusCode
+      });
+  };
+
+  const newImage = await SpotImage.create({
+    spotId: spot.id,
+    url,
+    preview
+  });
+
+  return res.json({
+    id: newImage.id,
+    url,
+    preview
+  });
+});
+
 // Create a Spot
 router.post('/', requireAuth, async (req, res, next) => {
 
@@ -152,7 +312,7 @@ router.put('/:spotId', requireAuth, async (req, res, next) => {
 
   if (!address || !city || !state || !country || !lat || !lng || !name || !description || !price) {
     return res.status(400).json({
-      message: "Validation Error",
+      message: 'Validation Error',
       statusCode: 400,
       errors: [{
         address: 'Street address is required',
