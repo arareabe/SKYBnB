@@ -436,6 +436,7 @@ router.post('/', requireAuth, async (req, res, next) => {
 // Edit a Spot
 router.put('/:spotId', requireAuth, async (req, res, next) => {
   const spot = await Spot.findByPk(req.params.spotId);
+
   const { address, city, state, country, lat, lng, name, description, price } = req.body;
 
   if (!spot) {
@@ -481,23 +482,24 @@ router.put('/:spotId', requireAuth, async (req, res, next) => {
 
 // Delete a Spot
 router.delete('/:spotId', requireAuth, async (req, res) => {
-  const deleteSpot = await Spot.findByPk(req.params.spotId);
-  if (!deleteSpot) {
+  const findSpot = await Spot.findByPk(req.params.spotId);
+
+  if (!findSpot) {
     return res
       .status(404)
       .json({
-        "message": "Spot couldn't be found",
-        "statusCode": 404
+        message: "Spot couldn't be found",
+        statusCode: res.statusCode
       })
   }
 
-  await deleteSpot.destroy();
+  await findSpot.destroy();
 
   return res
     .status(200)
     .json({
-      "message": "Successfully deleted",
-      "statusCode": 200
+      message: 'Successfully deleted',
+      statusCode: res.statusCode
     })
 })
 
