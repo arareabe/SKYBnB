@@ -101,20 +101,22 @@ router.post('/', requireAuth, async (req, res, next) => {
   const { address, city, state, country, lat, lng, name, description, price } = req.body;
 
   if (!address || !city || !state || !country || !lat || !lng || !name || !description || !price) {
-    return res.status(400).json({
-      message: "Validation Error",
-      statusCode: 400,
-      errors: [{
-        "address": "Street address is required",
-        "city": "City is required",
-        "state": "State is required",
-        "country": "Country is required",
-        "lat": "Latitude is not valid",
-        "lng": "Longitude is not valid",
-        "name": "Name must be less than 50 characters",
-        "description": "Description is required",
-        "price": "Price per day is required"
-      }]
+    return res
+      .status(400)
+      .json({
+        message: 'Validation Error',
+        statusCode: 400,
+        errors: [{
+          address: 'Street address is required',
+          city: 'City is required',
+          state: 'State is required',
+          country: 'Country is required',
+          lat: 'Latitude is not valid',
+          lng: 'Longitude is not valid',
+          name: 'Name must be less than 50 characters',
+          description: 'Description is required',
+          price: 'Price per day is required'
+        }]
     });
   };
 
@@ -153,15 +155,15 @@ router.put('/:spotId', requireAuth, async (req, res, next) => {
       message: "Validation Error",
       statusCode: 400,
       errors: [{
-        "address": "Street address is required",
-        "city": "City is required",
-        "state": "State is required",
-        "country": "Country is required",
-        "lat": "Latitude is not valid",
-        "lng": "Longitude is not valid",
-        "name": "Name must be less than 50 characters",
-        "description": "Description is required",
-        "price": "Price per day is required"
+        address: 'Street address is required',
+        city: 'City is required',
+        state: 'State is required',
+        country: 'Country is required',
+        lat: 'Latitude is not valid',
+        lng: 'Longitude is not valid',
+        name: 'Name must be less than 50 characters',
+        description: 'Description is required',
+        price: 'Price per day is required'
       }]
     });
   };
