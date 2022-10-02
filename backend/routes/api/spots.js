@@ -57,8 +57,7 @@ router.get('/:spotId', async (req, res) => {
   const spotDetails = await Spot.findByPk(req.params.spotId, {
     include: [
       {
-        model: User,
-        as: 'Owner',
+        model: User, as: 'Owner',
         attributes: ['id', 'firstName', 'lastName']
       },
       {
