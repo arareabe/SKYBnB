@@ -226,6 +226,58 @@ router.post('/:spotId/bookings', requireAuth, async (req, res) =>{
 });
 
 // Create a Review for a Spot based on the Spot's ID
+router.post('/:spotId/reviews', requireAuth, async (req, res) => {
+  const { review, stars } = req.body;
+
+  const findSpot = await Spot.findByPk(req.params.spotId);
+
+  if (!review || !stars ) {
+    return res
+      .status(404)
+      .json({
+        message: 'Validation Error',
+        statusCode: res.statusCode,
+        errors: [{
+          review: 'Review text is required',
+          stars: 'Stars must be an integer from 1 to 5'
+        }]
+      })
+  };
+
+  if (!findSpot) {
+    return res
+      .status(404)
+      .json({
+        message: "Spot couldn't be found",
+        statusCode: res.statusCode
+      })
+  };
+
+  const existingReview = await Review.findOne({
+    where: {
+      userId: req.user.id,
+      spotId: req.params.spotId
+    }
+  });
+
+  if (existingReview) {
+    return res
+      .status(403)
+      .json({
+        message: 'User already has a review for this spot',
+        statusCode: res.statusCode
+      })
+  };
+
+  const newReview = await Review.create({
+    userId: req.user.id,
+    spotId: findSpot.id,
+    review,
+    stars
+  });
+
+  res.json(newReview);
+});
 
 // Add an Image to a Spot based on the Spot's ID
 router.post('/:spotId/images', requireAuth, async (req, res) => {
