@@ -26,7 +26,9 @@ export const login = (user) => async (dispatch) => {
     }),
   });
   const data = await response.json();
-  dispatch(setUser(data.user));
+  delete data.token
+  // console.log(data);
+  dispatch(setUser(data));
   return response;
 };
 
@@ -50,6 +52,21 @@ const sessionReducer = (state = initialState, action) => {
 
 export const restoreUser = () => async dispatch => {
   const response = await csrfFetch('/api/session');
+  const data = await response.json();
+  dispatch(setUser(data.user));
+  return response;
+};
+
+export const signup = (user) => async (dispatch) => {
+  const { username, email, password } = user;
+  const response = await csrfFetch('/api/ueers', {
+    method: "POST",
+    body: JSON.stringify({
+      username,
+      email,
+      password
+    })
+  });
   const data = await response.json();
   dispatch(setUser(data.user));
   return response;
