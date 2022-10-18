@@ -21,10 +21,6 @@ if (process.env.NODE_ENV !== 'production') {
   window.sessionActions = sessionActions;
 }
 
-if (process.env.NODE_ENV !== 'production') {
-  window.store = store;
-}
-
 function Root() {
   return (
     <Provider store={store}>
