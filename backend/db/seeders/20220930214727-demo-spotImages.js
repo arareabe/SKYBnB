@@ -5,11 +5,13 @@ module.exports = {
     await queryInterface.bulkInsert('SpotImages', [
       {
         url: 'https://cdn.decoist.com/wp-content/uploads/2017/05/A-low-cabin-illuminated-with-yellow-lights.jpeg',
-        preview: true
+        preview: true,
+        spotId: 1
       },
       {
         url: 'www.crazyimage.com',
-        preview: true
+        preview: true,
+        spotId: 2
       }
     ], {});
   },
