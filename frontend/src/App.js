@@ -18,7 +18,7 @@ function App() {
       {isLoaded && (
         <Switch>
           <Route path='/'>
-            <AllSpots />
+            {/* <AllSpots /> */}
           </Route>
           <Route path="/signup">
             <SignupFormPage />
