@@ -17,8 +17,6 @@ module.exports = {
   },
 
   async down (queryInterface, Sequelize) {
-    await queryInterface.bulkDelete('SpotImages', {
-      address: ['www.funnyimage.com', 'www.crazyimage.com']
-    }, {})
+    await queryInterface.bulkDelete('SpotImages', {})
   }
 };

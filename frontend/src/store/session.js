@@ -39,7 +39,7 @@ const sessionReducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_USER:
       newState = Object.assign({}, state);
-      newState.user = action.payload;
+      newState = action.payload;
       return newState;
     case REMOVE_USER:
       newState = Object.assign({}, state);
@@ -70,7 +70,6 @@ export const signup = (user) => async (dispatch) => {
     })
   });
   const data = await response.json();
-  delete data.token;
   dispatch(setUser(data));
   return response;
 };
