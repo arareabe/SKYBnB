@@ -35,7 +35,7 @@ router.post('/', validateLogin, async (req, res, next) => {
 
   userRes.token = token;
 
-  return res.json(userRes);
+  return res.json({ user: userRes });
 });
 
 router.delete('/', (req, res) => {
@@ -50,7 +50,7 @@ router.get('/', restoreUser, (req, res) => {
       user: user.toSafeObject()
     });
   } else {
-    return res.json({});
+    return res.json({ user: null });
   }
 });
 
