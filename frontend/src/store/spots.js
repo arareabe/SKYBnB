@@ -39,6 +39,7 @@ export const getSingularSpot = (spotId) => async (dispatch) => {
 
   if (res.ok) {
     const singularSpot = await res.json();
+    console.log(singularSpot)
     dispatch(loadSpot(singularSpot));
     return singularSpot;
   }
@@ -81,7 +82,7 @@ const spotsReducer = (state = initialState, action) => {
       return spotsState;
     case READ_SPOT:
       const aSpotState = { ...state, allSpots: { ...state.allSpots}, singleSpot: { ...state.singleSpot }}
-      aSpotState.singleSpot = action.payload.spot
+      aSpotState.singleSpot = action.payload
       return aSpotState
     default:
       return state
