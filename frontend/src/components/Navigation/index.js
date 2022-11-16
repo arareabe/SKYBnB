@@ -40,7 +40,7 @@ function Navigation({ isLoaded }){
         )}
       </li>
       {showModal && <Modal onClose={() => setShowModal(false)}>
-        {login ? <LoginForm /> : <SignupFormPage />}
+        {login ? <LoginForm setShowModal={setShowModal} /> : <SignupFormPage setShowModal={setShowModal} />}
       </Modal>}
     </ul>
   );

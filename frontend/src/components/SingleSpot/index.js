@@ -19,13 +19,27 @@ const SingleSpot = () => {
     console.log(theSpot)
   }, [])
 
-  return (
-    <h1>{theSpot.name}</h1>
-  )
-
-
-
   if (!theSpot) return "That ain't a spot!"
+
+  return (
+    <div>
+      <div>
+        <h1>{theSpot.name}</h1>
+      </div>
+      <div>
+        <span>
+          {theSpot.avgRating} · {theSpot.numReviews} reviews · {theSpot.city}, {theSpot.state}, {theSpot.country}
+        </span>
+      </div>
+      <div>
+        <img src={theSpot.SpotImages ? theSpot.SpotImages[0].url : null} />
+      </div>
+      <div>
+        
+      </div>
+    </div>
+
+  )
 }
 
 export default SingleSpot;
