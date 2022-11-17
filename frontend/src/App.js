@@ -7,6 +7,7 @@ import Navigation from "./components/Navigation";
 import AllSpots from './components/AllSpots';
 import SingleSpot from './components/SingleSpot';
 import CreateASpotForm from './components/CreateASpotForm';
+import EditSpotForm from "./components/EditSpotForm";
 
 function App() {
   const dispatch = useDispatch();
@@ -29,6 +30,9 @@ function App() {
           </Route>
           <Route path='/spots/create'>
             <CreateASpotForm />
+          </Route>
+          <Route path='/spots/:spotId/edit'>
+            <EditSpotForm />
           </Route>
           <Route path='/spots/:spotId'>
             <SingleSpot />

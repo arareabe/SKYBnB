@@ -36,6 +36,12 @@ const updateSpot = (updatedSpot) => {
   }
 }
 
+const removeSpot = (deadSpot) => {
+  return {
+    type: REMOVE_SPOT,
+    payload: deadSpot
+  }
+}
 // MY THUNKS
 export const getAllSpots = () => async (dispatch) => {
   const res = await csrfFetch('/api/spots');
@@ -100,6 +106,16 @@ export const updateASpot = (spotId, updatedInfo) => async dispatch => {
   }
 }
 
+export const removeASpot = (removalId) => async dispatch => {
+  const res = await csrfFetch(`/api/spots/${removalId}`, {
+    method: 'DELETE'
+  });
+
+  if (res.ok) {
+    dispatch(removeSpot(removalId))
+  }
+}
+
 // REDUCE ME!
 
 const initialState = {
@@ -124,6 +140,10 @@ const spotsReducer = (state = initialState, action) => {
       createdSpotState.allSpots[action.payload.id] = action.payload;
       createdSpotState.singleSpot = action.payload;
       return createdSpotState;
+    case REMOVE_SPOT:
+      const removalState = { ...state, allSpots: { ...state.allSpots }, singleSpot: { ...state.singleSpot } }
+      delete removalState.allSpots[action.payload]
+      return removalState
     default:
       return state
   }

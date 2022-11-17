@@ -1,12 +1,13 @@
 import { useEffect } from 'react';
-import { useParams, NavLink } from 'react-router-dom'
+import { useParams, NavLink, useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux';
 
-import { getSingularSpot } from '../../store/spots';
+import { getSingularSpot, removeASpot } from '../../store/spots';
 
 const SingleSpot = () => {
   const { spotId } = useParams();
   const dispatch = useDispatch();
+  const history = useHistory();
 
   useEffect(() => {
     dispatch(getSingularSpot(spotId));
@@ -19,6 +20,12 @@ const SingleSpot = () => {
   useEffect(() => {
     console.log(theSpot)
   }, [])
+
+  const removeSpot = () => {
+    const removedSpot = dispatch(removeASpot(spotId))
+
+    if (removedSpot) history.push('/');
+  }
 
   if (!theSpot) return "That ain't a spot!"
 
@@ -75,6 +82,7 @@ const SingleSpot = () => {
       {currentUser && currentUser.id === theSpot.Owner?.id && (
         <div>
           <NavLink to={`/spots/${spotId}/edit`}>Edit your SkyBnB!</NavLink>
+          <button onClick={() => removeSpot()}>{`Delete your SkyBnB :(`}</button>
         </div>
       )}
 
