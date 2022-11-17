@@ -29,6 +29,7 @@ export const getAllReviews = (spotId) => async dispatch => {
 
   if (res.ok) {
     const allReviews = await res.json();
+    console.log("ALL REVIEWS ", allReviews)
     dispatch(readReviews(allReviews));
     return allReviews;
   }

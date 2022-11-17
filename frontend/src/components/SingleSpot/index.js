@@ -88,7 +88,7 @@ const SingleSpot = () => {
       )}
 
       <div>
-        <AllReviews />
+        <AllReviews spotId={spotId} />
       </div>
 
     </div>
