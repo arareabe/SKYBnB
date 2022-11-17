@@ -8,6 +8,13 @@ const REMOVE_REVIEW = 'reviews/removeReview';
 
 // ACTION CREATORS
 
+const readReviews = (allReviews) => {
+  return {
+    type: READ_REVIEWS,
+    payload: allReviews
+  }
+}
+
 const createReview = (newReview) => {
   return {
     type: CREATE_REVIEW,
@@ -16,6 +23,16 @@ const createReview = (newReview) => {
 }
 
 // MY THUNKS
+
+export const getAllReviews = (spotId) => async dispatch => {
+  const res = await csrfFetch(`/api/spots/${spotId}/reviews`)
+
+  if (res.ok) {
+    const allReviews = await res.json();
+    dispatch(readReviews(allReviews));
+    return allReviews;
+  }
+}
 
 export const createAReview = (spotId, newReview) => async dispatch => {
   const res = await csrfFetch(`/api/spots/${spotId}/reviews`, {
@@ -40,6 +57,12 @@ const initialState = {
 
 const reviewsReducer = (state = initialState, action) => {
   switch (action.type) {
+    case READ_REVIEWS:
+      const reviewsState = { ...state, spot: {...state.spot }, user: { ...state.user } }
+      action.payload.Reviews.forEach((review) => {
+        reviewsState.spot[review.id] = review
+      });
+      return reviewsState;
     case CREATE_REVIEW:
       const createdReviewState = { ...state, spot: { ...state.spot }, user: { ...state.user } };
       createdReviewState.spot[action.payload.id] = action.payload;
