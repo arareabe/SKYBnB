@@ -3,6 +3,7 @@ import { useParams, NavLink, useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux';
 
 import { getSingularSpot, removeASpot } from '../../store/spots';
+import AllReviews from '../AllReviews';
 
 const SingleSpot = () => {
   const { spotId } = useParams();
@@ -85,6 +86,10 @@ const SingleSpot = () => {
           <button onClick={() => removeSpot()}>{`Delete your SkyBnB :(`}</button>
         </div>
       )}
+
+      <div>
+        <AllReviews />
+      </div>
 
     </div>
 

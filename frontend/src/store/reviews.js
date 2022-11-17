@@ -67,5 +67,9 @@ const reviewsReducer = (state = initialState, action) => {
       const createdReviewState = { ...state, spot: { ...state.spot }, user: { ...state.user } };
       createdReviewState.spot[action.payload.id] = action.payload;
       return createdReviewState;
+    default:
+      return state;
   }
 }
+
+export default reviewsReducer;
