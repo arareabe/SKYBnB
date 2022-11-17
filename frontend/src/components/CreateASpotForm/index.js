@@ -58,6 +58,8 @@ const CreateASpotForm = () => {
     if (!validationErrors.length) {
       let newSpot = await dispatch(createASpot(payload, imgUrl));
 
+      console.log('HEY THIS IS THE NEW SPOT ', newSpot);
+
       if (newSpot) history.push(`/spots/${newSpot.id}`);
 
       setAddress('')

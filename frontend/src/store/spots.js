@@ -87,7 +87,7 @@ export const createASpot = (newSpot, imgUrl) => async dispatch => {
     if (secRes.ok) {
       const theNewSpot = await secRes.json();
       dispatch(createSpot(theNewSpot));
-      return theNewSpot;
+      return createdSpot;
     }
   }
 ;}
