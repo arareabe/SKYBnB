@@ -39,6 +39,9 @@ function Navigation({ isLoaded }){
           />
         )}
       </li>
+      <li>
+        <NavLink to='/spots/create'>Become a Host!</NavLink>
+      </li>
       {showModal && <Modal onClose={() => setShowModal(false)}>
         {login ? <LoginForm setShowModal={setShowModal} /> : <SignupFormPage setShowModal={setShowModal} />}
       </Modal>}

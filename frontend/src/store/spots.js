@@ -22,6 +22,13 @@ const loadSpot = (spot) => {
   };
 }
 
+const createSpot = (newSpot) => {
+  return {
+    type: CREATE_SPOT,
+    payload: newSpot
+  }
+}
+
 // MY THUNKS
 export const getAllSpots = () => async (dispatch) => {
   const res = await csrfFetch('/api/spots');
@@ -45,27 +52,34 @@ export const getSingularSpot = (spotId) => async (dispatch) => {
   }
 }
 
-// export const createSpot = (spot) => async (dispatch) => {
-//   const { address, city, state, country, lat, lng, name, description, price } = spot;
-//   const res = await csrfFetch('/api/spots', {
-//     method: 'POST',
-//     body: JSON.stringify({
-//       address,
-//       city,
-//       state,
-//       country,
-//       lat,
-//       lng,
-//       name,
-//       description,
-//       price
-//     })
-//   });
-//   const data = await res.json();
-//   console.log(data);
-//   dispatch(setSpot(data));
-//   return res;
-// }
+export const createASpot = (newSpot, imgUrl) => async dispatch => {
+  const res = await csrfFetch(`/api/spots`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(newSpot)
+  });
+
+  if (res.ok) {
+    const createdSpot = await res.json();
+
+    const secRes = await csrfFetch(`/api/spots/${createdSpot.id}/images`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        url: imgUrl,
+        preview: true
+      })
+    });
+
+    if (secRes.ok) {
+      const theNewSpot = await secRes.json();
+      dispatch(createSpot(theNewSpot));
+      return theNewSpot;
+    }
+  }
+;}
+
+// REDUCE ME!
 
 const initialState = {
   allSpots: {},
@@ -83,7 +97,12 @@ const spotsReducer = (state = initialState, action) => {
     case READ_SPOT:
       const aSpotState = { ...state, allSpots: { ...state.allSpots}, singleSpot: { ...state.singleSpot }}
       aSpotState.singleSpot = action.payload
-      return aSpotState
+      return aSpotState;
+    case CREATE_SPOT:
+      const createdSpotState = { ...state, allSpots: { ...state.allSpots }, singleSpot: { ...state.singleSpot } }
+      createdSpotState.allSpots[action.payload.id] = action.payload;
+      createdSpotState.singleSpot = action.payload;
+      return createdSpotState;
     default:
       return state
   }
