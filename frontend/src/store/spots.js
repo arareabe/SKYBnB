@@ -29,6 +29,13 @@ const createSpot = (newSpot) => {
   }
 }
 
+const updateSpot = (updatedSpot) => {
+  return {
+    type: UPDATE_SPOT,
+    payload: updatedSpot
+  }
+}
+
 // MY THUNKS
 export const getAllSpots = () => async (dispatch) => {
   const res = await csrfFetch('/api/spots');
@@ -79,6 +86,20 @@ export const createASpot = (newSpot, imgUrl) => async dispatch => {
   }
 ;}
 
+export const updateASpot = (spotId, updatedInfo) => async dispatch => {
+  const res = await csrfFetch(`/api/spots/${spotId}`, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(updatedInfo)
+  })
+
+  if (res.ok) {
+    const updatedSpot = res.json();
+    dispatch(createSpot(updatedSpot));
+    return updatedSpot;
+  }
+}
+
 // REDUCE ME!
 
 const initialState = {
@@ -95,7 +116,7 @@ const spotsReducer = (state = initialState, action) => {
       });
       return spotsState;
     case READ_SPOT:
-      const aSpotState = { ...state, allSpots: { ...state.allSpots}, singleSpot: { ...state.singleSpot }}
+      const aSpotState = { ...state, allSpots: { ...state.allSpots}, singleSpot: { ...state.singleSpot } }
       aSpotState.singleSpot = action.payload
       return aSpotState;
     case CREATE_SPOT:

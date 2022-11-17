@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useParams } from 'react-router-dom'
+import { useParams, NavLink } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux';
 
 import { getSingularSpot } from '../../store/spots';
@@ -13,7 +13,8 @@ const SingleSpot = () => {
   }, [dispatch, spotId]);
 
 
-  const theSpot = useSelector(state => state.spots.singleSpot)
+  const theSpot = useSelector(state => state.spots.singleSpot);
+  const currentUser = useSelector(state => state.session.user);
 
   useEffect(() => {
     console.log(theSpot)
@@ -70,6 +71,12 @@ const SingleSpot = () => {
 
         <h3>{theSpot.description}</h3>
       </div>
+
+      {currentUser && currentUser.id === theSpot.Owner?.id && (
+        <div>
+          <NavLink to={`/spots/${spotId}/edit`}>Edit your SkyBnB!</NavLink>
+        </div>
+      )}
 
     </div>
 
