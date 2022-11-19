@@ -22,6 +22,13 @@ const createReview = (newReview) => {
   }
 }
 
+const removeReview = (deadReview) => {
+  return {
+    type: REMOVE_REVIEW,
+    payload: deadReview
+  }
+}
+
 // MY THUNKS
 
 export const getAllReviews = (spotId) => async dispatch => {
@@ -49,6 +56,16 @@ export const createAReview = (spotId, newReview) => async dispatch => {
   }
 }
 
+export const removeAReview = (removalId) => async dispatch => {
+  const res = await csrfFetch(`/api/reviews/${removalId}`, {
+    method: 'DELETE'
+  });
+
+  if (res.ok) {
+    dispatch(removeReview(removalId))
+  }
+}
+
 // REDUCE ME!
 
 const initialState = {
@@ -68,6 +85,10 @@ const reviewsReducer = (state = initialState, action) => {
       const createdReviewState = { ...state, spot: { ...state.spot }, user: { ...state.user } };
       createdReviewState.spot[action.payload.id] = action.payload;
       return createdReviewState;
+    case REMOVE_REVIEW:
+      const removalState = { ...state, spot: { ...state.spot }, user: { ...state.user } }
+      delete removalState.spot[action.payload];
+      return removalState;
     default:
       return state;
   }

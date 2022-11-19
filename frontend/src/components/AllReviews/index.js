@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, NavLink } from 'react-router-dom';
-import { getAllReviews } from '../../store/reviews';
+import { getAllReviews, removeAReview } from '../../store/reviews';
 import CreateAReviewForm from '../CreateAReviewForm';
 
 const AllReviews = ({ spotId }) => {
@@ -16,10 +16,12 @@ const AllReviews = ({ spotId }) => {
   const reviewsObj = useSelector((state => state.reviews.spot));
   const allReviews = Object.values(reviewsObj);
 
-  useEffect(() => {
-    console.log("THE SPOTID ", spotId)
-    console.log("HEY THIS IS THE ALLREVIEWS ", reviewsObj);
-  }, [])
+  // useEffect(() => {
+  //   console.log("THE SPOTID ", spotId)
+
+  // }, [])
+
+  // console.log("HEY THIS IS THE ALLREVIEWS ", reviewsObj);
 
   let alreadyReviewed
   if (currUser) {
@@ -37,6 +39,20 @@ const AllReviews = ({ spotId }) => {
     )
   }
 
+  const removeButton = (userId, reviewId) => {
+    if (currUser?.id !== userId) {
+      return null
+    } else {
+      return (
+        <button onClick={() => {
+          dispatch(removeAReview(reviewId))
+        }}>
+          Delete your review!
+        </button>
+      )
+    }
+  }
+
   return (
     <div>
       <div>
@@ -47,10 +63,14 @@ const AllReviews = ({ spotId }) => {
         {allReviews.map(review => (
           <div>
             <div>
-              {review.User.firstName} rates this SkyBnB {review.stars}!
+              {review.User?.firstName} rates this SkyBnB {review.stars}!
+              {/* {console.log("HEY THIS IS REVIEW BUDDY ", review)} */}
             </div>
             <div>
               {review.review}
+            </div>
+            <div>
+              {removeButton(review.userId, review.id)}
             </div>
           </div>
         ))}

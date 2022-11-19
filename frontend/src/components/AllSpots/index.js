@@ -22,21 +22,23 @@ const AllSpots = () => {
   return (
     <div>
       <h1>Welcome to SkyBnB!</h1>
-      {allSpots.map(spot =>
-        <Link to={`/spots/${spot.id}`}>
-          <img src={spot.previewImage}></img>
-          <div>
-            {spot.city}, {spot.state}
-          </div>
-          <div>
-            {spot.avgRating}
-          </div>
-          <div>
-            {spot.price}
-            <span>{' '}night</span>
-          </div>
-        </Link>
-        )}
+      <div>
+        {allSpots.map(spot =>
+          <Link to={`/spots/${spot.id}`}>
+            <img src={spot.previewImage}></img>
+            <div>
+              {spot.city}, {spot.state}
+            </div>
+            <div>
+              {spot.avgRating}
+            </div>
+            <div>
+              {spot.price}
+              <span>{' '}night</span>
+            </div>
+          </Link>
+          )}
+      </div>
     </div>
   )
 }

@@ -13,7 +13,9 @@ function LoginForm({ setShowModal }) {
     e.stopPropagation();
     setErrors([]);
     return dispatch(sessionActions.login({ credential, password }))
-      .then(setShowModal(false))
+      .then(() => {
+        setShowModal(false)
+      })
       .catch(
       async (res) => {
         const data = await res.json();
