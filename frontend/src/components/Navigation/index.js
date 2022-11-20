@@ -30,7 +30,9 @@ function Navigation({ isLoaded }){
   return (
     <ul>
       <li>
-        <NavLink exact to="/">Home</NavLink>
+        <NavLink exact to="/">
+          <img id='skyBnb' src='https://i.imgur.com/yK6f0q5.jpg' />
+        </NavLink>
         {isLoaded && (
           <ProfileButton
             user={sessionUser}

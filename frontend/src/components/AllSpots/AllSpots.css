@@ -13,9 +13,8 @@
 .spotCards {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  column-gap: 40px;
-  height: 100%;
-  row-gap: 50px;
+  column-gap: 35px;
+  row-gap: 55px;
   margin-top: 50px;
 }
 
@@ -72,4 +71,8 @@
 #spotName {
   color: gray;
   margin-top: 10px;
+}
+
+#actualPrice{
+  font-weight: bold;
 }

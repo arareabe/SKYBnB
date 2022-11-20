@@ -50,8 +50,8 @@ const AllSpots = () => {
                   </div>
 
                   <div className='spotPrice'>
-                    ${spot.price}
-                    <span>{' '}per night</span>
+                    <span id='actualPrice'>${spot.price}</span>
+                    <span>{' '}night</span>
                   </div>
                 </div>
 
