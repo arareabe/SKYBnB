@@ -9,9 +9,14 @@ module.exports = {
         spotId: 1
       },
       {
-        url: 'www.crazyimage.com',
+        url: 'https://assets-news.housing.com/news/wp-content/uploads/2022/01/10145854/most-beautiful-houses2.png',
         preview: true,
         spotId: 2
+      },
+      {
+        url: 'https://1.bp.blogspot.com/-efnC_54GPGI/XU_382v9tzI/AAAAAAAAUug/ogPWFEJZUzMNQUuwtZcPcKLaaYw4SiYTQCLcBGAs/s1600/Beautiful%2BHomes%2Bin%2BLos%2BAngeles%252C%2BCalifornia%2B1.jpg',
+        preview: true,
+        spotId: 3
       }
     ], {});
   },

@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import './AllSpots.css';
 
 import { getAllSpots } from '../../store/spots';
 
@@ -22,22 +23,27 @@ const AllSpots = () => {
   return (
     <div>
       <h1>Welcome to SkyBnB!</h1>
-      <div>
+      <div className='spotCards'>
         {allSpots.map(spot =>
-          <Link to={`/spots/${spot.id}`}>
-            <img src={spot.previewImage}></img>
-            <div>
-              {spot.city}, {spot.state}
-            </div>
-            <div>
-              {spot.avgRating}
-            </div>
-            <div>
-              {spot.price}
-              <span>{' '}night</span>
-            </div>
-          </Link>
-          )}
+          <div className='spotCard'>
+            <Link to={`/spots/${spot.id}`}>
+              <div className='imageDiv'>
+                <img src={spot.previewImage} className='image'></img>
+              </div>
+
+              <div>
+                {spot.city}, {spot.state}
+              </div>
+              <div>
+                {spot.avgRating}
+              </div>
+              <div>
+                {spot.price}
+                <span>{' '}night</span>
+              </div>
+            </Link>
+          </div>
+        )}
       </div>
     </div>
   )
