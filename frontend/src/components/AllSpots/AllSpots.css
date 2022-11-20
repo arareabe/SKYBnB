@@ -1,13 +1,18 @@
+.titlePage {
+  display: flex;
+  justify-content: center;
+}
+
 .spotCards {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-around;
   margin: 0px 100px;
 }
 
 .spotCard {
   display: grid;
-  width: 300px;
+  width: 400px;
   height: 400px;
 }
 
@@ -22,4 +27,13 @@
   justify-content: center;
   width: 100%;
   object-fit: cover;
+  height: 300px;
+  border-radius: 20px;
+}
+
+.cardInfo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 20px;
 }

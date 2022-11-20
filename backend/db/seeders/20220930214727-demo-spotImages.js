@@ -17,6 +17,31 @@ module.exports = {
         url: 'https://1.bp.blogspot.com/-efnC_54GPGI/XU_382v9tzI/AAAAAAAAUug/ogPWFEJZUzMNQUuwtZcPcKLaaYw4SiYTQCLcBGAs/s1600/Beautiful%2BHomes%2Bin%2BLos%2BAngeles%252C%2BCalifornia%2B1.jpg',
         preview: true,
         spotId: 3
+      },
+      {
+        url: 'https://dq5w2ex467fab.cloudfront.net/morongocasinoresort.com-1761492892/cms/cache/v2/60e5de0aacae1.jpg/1920x1080/fit/80/7d65af0720b59cd988868ffeef674f21.jpg',
+        preview: true,
+        spotId: 4
+      },
+      {
+        url: 'https://galeriemagazine.com/wp-content/uploads/2019/02/Stahl2-1920x1200.jpg',
+        preview: true,
+        spotId: 5
+      },
+      {
+        url: 'https://robbreport.com/wp-content/uploads/2022/01/Cielo2.jpg',
+        preview: true,
+        spotId: 6
+      },
+      {
+        url: 'https://www.laconservancy.org/sites/default/files/styles/hero_full/public/images/heroes/ASF%202013.jpg',
+        preview: true,
+        spotId: 7
+      },
+      {
+        url: 'https://a0.muscache.com/im/pictures/miso/Hosting-740520829652124473/original/0e453947-a99c-4f2f-b7ce-753606a62f53.jpeg',
+        preview: true,
+        spotId: 8
       }
     ], {});
   },

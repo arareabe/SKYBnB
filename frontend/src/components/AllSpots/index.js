@@ -22,7 +22,9 @@ const AllSpots = () => {
 
   return (
     <div>
-      <h1>Welcome to SkyBnB!</h1>
+      <div className='titlePage'>
+        <h1>Welcome to SkyBnB!</h1>
+      </div>
       <div className='spotCards'>
         {allSpots.map(spot =>
           <div className='spotCard'>
@@ -31,12 +33,15 @@ const AllSpots = () => {
                 <img src={spot.previewImage} className='image'></img>
               </div>
 
-              <div>
-                {spot.city}, {spot.state}
+              <div className='cardInfo'>
+                <div>
+                  {spot.city}, {spot.state}
+                </div>
+                <div>
+                  {spot.avgRating}
+                </div>
               </div>
-              <div>
-                {spot.avgRating}
-              </div>
+              
               <div>
                 {spot.price}
                 <span>{' '}night</span>

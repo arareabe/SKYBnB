@@ -35,6 +35,61 @@ module.exports = {
         name: 'Canyon Bobcat',
         description: 'Handscrafted cabin in NYC',
         price: '320'
+      },
+      {
+        address: '1436 Rowling Ave',
+        city: 'Los Angeles',
+        state: 'CA',
+        country: 'USA',
+        lat: 38,
+        lng: 42,
+        name: 'The Tops Resort',
+        description: 'Swanky place right along the Courier River',
+        price: '521'
+      },
+      {
+        address: '222 Burrows Lane',
+        city: 'Seattle',
+        state: 'WA',
+        country: 'USA',
+        lat: 25,
+        lng: 44,
+        name: 'Lucky 38 Cottage',
+        description: 'An isolate cottage in Seattle with very cozy vibes.',
+        price: '320'
+      },
+      {
+        address: '3544 Barringstone Ave',
+        city: 'Philadelphia',
+        state: 'PA',
+        country: 'USA',
+        lat: 21,
+        lng: 43,
+        name: 'The Barringstone Mansion',
+        description: 'Luxurious and in pristine condition since the 18th century',
+        price: '649'
+      },
+      {
+        address: '109 Row St',
+        city: 'Boston',
+        state: 'MA',
+        country: 'USA',
+        lat: 18,
+        lng: 22,
+        name: 'Sky Tower',
+        description: 'Perched high on an oceanside hill, the view is to die for.',
+        price: '120'
+      },
+      {
+        address: '8793 Melody Ave',
+        city: 'Orlando',
+        state: 'FL',
+        country: 'USA',
+        lat: 55,
+        lng: 43,
+        name: 'Lakefront Townhouse',
+        description: 'A private townhouse right by a lake, offers very convenient quarters to those stopping by.',
+        price: '226'
       }
     ], {});
   },
