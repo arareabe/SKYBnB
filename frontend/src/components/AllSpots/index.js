@@ -22,9 +22,9 @@ const AllSpots = () => {
 
   return (
     <div>
-      <div className='titlePage'>
+      {/* <div className='titlePage'>
         <h1>Welcome to SkyBnB!</h1>
-      </div>
+      </div> */}
       <div className='spotWrapper'>
         <div className='spotCards'>
           {allSpots.map(spot =>

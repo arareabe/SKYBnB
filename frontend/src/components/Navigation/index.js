@@ -28,26 +28,30 @@ function Navigation({ isLoaded }){
   }
 
   return (
-    <ul>
-      <li>
+    <div className='navHeader'>
+      <div>
         <NavLink exact to="/">
           <img id='skyBnb' src='https://i.imgur.com/yK6f0q5.jpg' />
         </NavLink>
+      </div>
+      <div className='navModal'>
+        <div>
+          <NavLink to='/spots/create'>Become a Host!</NavLink>
+        </div>
+        <div>
         {isLoaded && (
-          <ProfileButton
-            user={sessionUser}
-            setLogin={setLogin}
-            setShowModal={setShowModal}
-          />
-        )}
-      </li>
-      <li>
-        <NavLink to='/spots/create'>Become a Host!</NavLink>
-      </li>
-      {showModal && <Modal onClose={() => setShowModal(false)}>
-        {login ? <LoginForm setShowModal={setShowModal} /> : <SignupFormPage setShowModal={setShowModal} />}
-      </Modal>}
-    </ul>
+            <ProfileButton
+              user={sessionUser}
+              setLogin={setLogin}
+              setShowModal={setShowModal}
+            />
+          )}
+        </div>
+        {showModal && <Modal onClose={() => setShowModal(false)}>
+          {login ? <LoginForm setShowModal={setShowModal} /> : <SignupFormPage setShowModal={setShowModal} />}
+        </Modal>}
+      </div>
+    </div>
   );
 }
 

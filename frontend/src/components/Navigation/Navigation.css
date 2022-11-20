@@ -1,5 +1,18 @@
 #skyBnb {
   width: 150px;
-  position: absolute;
-  border-color: blue;
+  margin: 1px 20px 20px 150px;
+}
+
+.navHeader {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: solid 1px lightgrey;
+  position: sticky;
+  height: 160px;
+}
+
+.navModal {
+  display: flex;
+  margin: 40px 150px 20px;
+
 }
