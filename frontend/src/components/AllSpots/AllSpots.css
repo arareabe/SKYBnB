@@ -1,19 +1,33 @@
 .titlePage {
   display: flex;
   justify-content: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: bold;
+}
+
+.spotWrapper {
+  display: flex;
+  justify-content: center;
 }
 
 .spotCards {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  margin: 0px 100px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  column-gap: 40px;
+  height: 100%;
+  row-gap: 50px;
+  margin-top: 50px;
+}
+
+.spotLink {
+  text-decoration: none;
 }
 
 .spotCard {
   display: grid;
-  width: 400px;
+  width: 450px;
   height: 400px;
+  margin: 15px;
 }
 
 .imageDiv {
@@ -27,13 +41,35 @@
   justify-content: center;
   width: 100%;
   object-fit: cover;
-  height: 300px;
+  height: 350px;
   border-radius: 20px;
 }
 
 .cardInfo {
+  color: black;
+  margin-top: 65px;
+}
+
+.cardTopInfo {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   margin-top: 20px;
+  font-weight: bold;
+  font-size: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.spotStar {
+  margin-right: 20px;
+}
+
+.spotPrice {
+  margin-top: 10px;
+  font-size: 20px;
+}
+
+#spotName {
+  color: gray;
+  margin-top: 10px;
 }

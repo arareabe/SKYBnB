@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import './AllSpots.css';
 
 import { getAllSpots } from '../../store/spots';
@@ -25,30 +25,40 @@ const AllSpots = () => {
       <div className='titlePage'>
         <h1>Welcome to SkyBnB!</h1>
       </div>
-      <div className='spotCards'>
-        {allSpots.map(spot =>
-          <div className='spotCard'>
-            <Link to={`/spots/${spot.id}`}>
-              <div className='imageDiv'>
-                <img src={spot.previewImage} className='image'></img>
-              </div>
+      <div className='spotWrapper'>
+        <div className='spotCards'>
+          {allSpots.map(spot =>
+            <div className='spotCard'>
+              <NavLink className='spotLink' to={`/spots/${spot.id}`}>
+                <div className='imageDiv'>
+                  <img src={spot.previewImage} className='image'></img>
+                </div>
 
-              <div className='cardInfo'>
-                <div>
-                  {spot.city}, {spot.state}
+                <div className='cardInfo'>
+                  <div className='cardTopInfo'>
+                    <div>
+                      {spot.city}, {spot.state}
+                    </div>
+                    <div>
+                      <i id='spotStar' className="fa-sharp fa-solid fa-star"></i>
+                      {spot.avgRating}
+                    </div>
+                  </div>
+
+                  <div id='spotName'>
+                    {spot.name}
+                  </div>
+
+                  <div className='spotPrice'>
+                    ${spot.price}
+                    <span>{' '}per night</span>
+                  </div>
                 </div>
-                <div>
-                  {spot.avgRating}
-                </div>
-              </div>
-              
-              <div>
-                {spot.price}
-                <span>{' '}night</span>
-              </div>
-            </Link>
-          </div>
-        )}
+
+              </NavLink>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   )

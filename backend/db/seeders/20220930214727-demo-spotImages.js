@@ -34,7 +34,7 @@ module.exports = {
         spotId: 6
       },
       {
-        url: 'https://www.laconservancy.org/sites/default/files/styles/hero_full/public/images/heroes/ASF%202013.jpg',
+        url: 'https://cdn.tollbrothers.com/communities/13313/images-resized/Flora_Haralson_FTElevation_3194-1_1920.jpg',
         preview: true,
         spotId: 7
       },
