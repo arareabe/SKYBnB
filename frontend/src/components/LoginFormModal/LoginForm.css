@@ -1,11 +1,11 @@
 .loginFormModal {
   position: fixed;
   background-color: white;
-  top: 200px;
-  left: 42%;
-  width: 400px;
-  height: 600px;
-  padding: 40px;
+  top: 140px;
+  left: 40%;
+  width: 280px;
+  height: 420px;
+  padding: 28px;
   border: 1px solid rgb(160, 155, 155);
   border-radius: 20px;
 }
@@ -18,43 +18,43 @@
 }
 
 #loginTitle {
-  font-size: 30px;
-  padding-bottom: 10px;
+  font-size: 21px;
+  padding-bottom: 7px;
   border-bottom: 2px solid lightgrey;
   font-weight: 550;
 }
 
 #usernameField {
-  margin-top: 60px;
-  padding: 15px;
+  margin-top: 42px;
+  padding: 10.5px;
   border-radius: 10px;
-  width: 350px;
+  width: 245px;
   border: 4px solid lightgrey;
-  font-size: 20px;
+  font-size: 14px;
 }
 
 #passwordField {
-  margin-top: 20px;
-  padding: 15px;
+  margin-top: 14px;
+  padding: 10.5px;
   border-radius: 10px;
-  width: 350px;
+  width: 245px;
   border: 4px solid lightgrey;
-  font-size: 20px;
+  font-size: 14px;
 }
 
 #loginButton {
   background-color: lightcoral;
   border: none;
   border-radius: 20px;
-  margin-top: 30px;
+  margin-top: 21px;
   color: white;
-  width: 350px;
-  padding: 15px;
-  font-size: 20px;
+  width: 245px;
+  padding: 10.5px;
+  font-size: 14px;
 }
 
 .validErrs {
-  margin-top: 20px;
+  margin-top: 14px;
   color: red;
-  font-size: 18px;
+  font-size: 12.6px;
 }
