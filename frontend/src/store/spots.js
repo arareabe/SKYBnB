@@ -101,7 +101,7 @@ export const updateASpot = (spotId, updatedInfo) => async dispatch => {
 
   if (res.ok) {
     const updatedSpot = res.json();
-    dispatch(createSpot(updatedSpot));
+    dispatch(updateSpot(updatedSpot));
     return updatedSpot;
   }
 }
@@ -140,6 +140,11 @@ const spotsReducer = (state = initialState, action) => {
       createdSpotState.allSpots[action.payload.id] = action.payload;
       createdSpotState.singleSpot = action.payload;
       return createdSpotState;
+    case UPDATE_SPOT: {
+      const updatedSpot = { ...state, allSpots: { ...state.allSpots }, singleSpot: { ...state.singleSpot } }
+      updatedSpot.singleSpot = action.payload;
+      return updatedSpot;
+    }
     case REMOVE_SPOT:
       const removalState = { ...state, allSpots: { ...state.allSpots }, singleSpot: { ...state.singleSpot } }
       delete removalState.allSpots[action.payload]

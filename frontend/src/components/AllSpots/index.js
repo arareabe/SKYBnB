@@ -29,7 +29,7 @@ const AllSpots = () => {
         <div className='spotCards'>
           {allSpots.map(spot =>
             <div className='spotCard'>
-              {console.log('THIS IS THE SPOT ', typeof spot === 'object')}
+              {console.log('THIS IS THE SPOT ', typeof spot === 'object', spot)}
               <NavLink className='spotLink' to={`/spots/${spot.id}`}>
                 <div className='imageDiv'>
                   <img src={spot.previewImage} className='image'></img>
