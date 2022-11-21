@@ -13,9 +13,9 @@
 .spotCards {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  column-gap: 35px;
-  row-gap: 55px;
-  margin-top: 50px;
+  column-gap: 10.5px;
+  row-gap: 38.5px;
+  margin-top: 35px;
 }
 
 .spotLink {
@@ -24,14 +24,14 @@
 
 .spotCard {
   display: grid;
-  width: 450px;
-  height: 400px;
-  margin: 15px;
+  width: 315px;
+  height: 280px;
+  margin: 10.5px;
 }
 
 .imageDiv {
   width: 100%;
-  height: 300px;
+  height: 210px;
 }
 
 .image {
@@ -40,37 +40,37 @@
   justify-content: center;
   width: 100%;
   object-fit: cover;
-  height: 350px;
-  border-radius: 20px;
+  height: 245px;
+  border-radius: 14px;
 }
 
 .cardInfo {
   color: black;
-  margin-top: 65px;
+  margin-top: 45.5px;
 }
 
 .cardTopInfo {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin-top: 20px;
+  margin-top: 14px;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 14px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .spotStar {
-  margin-right: 20px;
+  margin-right: 14px;
 }
 
 .spotPrice {
-  margin-top: 10px;
-  font-size: 20px;
+  margin-top: 7px;
+  font-size: 14px;
 }
 
 #spotName {
   color: gray;
-  margin-top: 10px;
+  margin-top: 7px;
 }
 
 #actualPrice{
