@@ -1,0 +1,91 @@
+.singleSpotGrid {
+  display: grid;
+  grid-template-rows: 70px 50px 600px 0.5fr 1fr;
+  grid-template-columns: 20% 45% 35%;
+  grid-template-areas:
+  '. name .'
+  '. topInfo .'
+  '. images .'
+  '. description sidebox'
+  '. reviews .'
+}
+
+.singleSpotName {
+  display: grid;
+  grid-area: name;
+  margin-top: 20px;
+}
+
+.singleSpotTopInfo {
+  display: grid;
+  grid-area: topInfo;
+}
+
+.singleSpotImage {
+  display: grid;
+  grid-area: images;
+  object-fit: cover;
+}
+
+#actualImg {
+  height: 600px;
+}
+
+.singleSpotSidebar {
+  grid-area: sidebox;
+  display: flex;
+  flex-direction: column;
+  border: solid 1px lightgrey;
+  width: fit-content;
+  height: fit-content;
+  border-radius: 12px;
+  padding: 20px;
+  margin-right: auto;
+  justify-content: space-between;
+}
+
+.singleSpotDesc {
+  display: grid;
+  grid-area: description;
+}
+
+.singleSpotReviews {
+  display: grid;
+  grid-area: reviews;
+}
+
+.ownerDetails {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid lightgrey;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  height: 70px;
+}
+
+#actualOwner {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.spotPerks {
+  border-bottom: 1px solid lightgrey;
+  height: 220px;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+}
+
+.aircoverBox {
+  height: 150px;
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  border-bottom: 1px solid lightgrey;
+}
+
+#aircoverLogo {
+  height: 30px;
+  width: 180px;
+}
