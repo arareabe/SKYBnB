@@ -1,30 +1,30 @@
 .createFormWrapper {
-  margin: 30px auto;
+  margin: 21px auto;
   border: 2px solid lightgrey;
   box-shadow: 3px 3px 7px grey;
-  width: 800px;
+  width: 560px;
   border-radius: 14px;
-  padding: 20px;
-  height: 1100px;
+  padding: 14px;
+  height: 800px;
 }
 
 .createInputWrapper{
   display: flex;
   flex-direction: column;
-  margin: 15px;
+  margin: 10.5px;
   border-radius: 12px;
 }
 
 #createFormTitle {
-  font-size: 26px;
+  font-size: 18.2px;
   display: flex;
   justify-content: center;
   border-bottom: 1px solid lightgrey;
-  padding-bottom: 20px;
+  padding-bottom: 14px;
 }
 
 .createFormPage {
-  padding: 20px;
+  padding: 14px;
 }
 
 #createSpotButton {
@@ -33,20 +33,20 @@
 }
 
 #actualCreateButton {
-  width: 730px;
+  width: 511px;
   border-radius: 20px;
   background-color: lightcoral;
   color: white;
-  padding: 15px;
-  font-size: 26px;
-  margin-top: 40px;
+  padding: 10.5px;
+  font-size: 18.2px;
+  margin-top: 28px;
 }
 
 .createInput {
   border-radius: 20px;
-  font-size: 18px;
-  margin: 10px;
-  padding: 10px;
+  font-size: 12.6px;
+  margin: 7px;
+  padding: 7px;
 }
 
 #validErrsTitle {
