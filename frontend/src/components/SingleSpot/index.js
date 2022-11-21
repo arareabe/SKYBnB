@@ -39,7 +39,7 @@ const SingleSpot = () => {
 
       <div className='singleSpotTopInfo'>
         <span>
-          {theSpot.avgRating} · {theSpot.numReviews} reviews · Superhost · {theSpot.city}, {theSpot.state}, {theSpot.country}
+          <i id='spotStar' className="fa-sharp fa-solid fa-star"></i>{theSpot.avgRating} · {theSpot.numReviews} reviews · Superhost · {theSpot.city}, {theSpot.state}, {theSpot.country}
         </span>
       </div>
 
@@ -56,7 +56,7 @@ const SingleSpot = () => {
 
       <div className='singleSpotDesc'>
         <div className='ownerDetails'>
-          <span id='actualOwner'>{`Home hosted by ${theSpot.Owner?.firstName ? theSpot.Owner.firstName : 'no one'}`}</span>
+          <span id='actualOwner'>{`Home hosted by ${theSpot.Owner?.firstName ? theSpot.Owner.firstName : 'Bill'}`}</span>
           <span>6 guests · 3 bedrooms· 4 beds· 2 bath</span>
         </div>
 
@@ -80,7 +80,9 @@ const SingleSpot = () => {
           <p>Every booking includes free protection from Host cancellations, listing inaccuracies, and other issues like trouble checking in.</p>
         </div>
 
-        <h3>{theSpot.description}</h3>
+        <div className='spotDescriptionBox'>
+          <h3>{theSpot.description}</h3>
+        </div>
       </div>
 
       {currentUser && currentUser.id === theSpot.Owner?.id && (

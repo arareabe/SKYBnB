@@ -5,7 +5,7 @@
   grid-template-areas:
   '. name .'
   '. topInfo .'
-  '. images .'
+  '. image .'
   '. description sidebox'
   '. reviews .'
 }
@@ -14,16 +14,19 @@
   display: grid;
   grid-area: name;
   margin-top: 20px;
+  font-size: 18px;
+  padding-bottom: 15px;
 }
 
 .singleSpotTopInfo {
   display: grid;
   grid-area: topInfo;
+  font-size: 20px;
 }
 
 .singleSpotImage {
   display: grid;
-  grid-area: images;
+  grid-area: image;
   object-fit: cover;
 }
 
@@ -35,13 +38,13 @@
   grid-area: sidebox;
   display: flex;
   flex-direction: column;
-  border: solid 1px lightgrey;
-  width: fit-content;
-  height: fit-content;
+  border: solid 3px lightgrey;
   border-radius: 12px;
   padding: 20px;
   margin-right: auto;
-  justify-content: space-between;
+  justify-content: space-around;
+  height: 130px;
+  font-size: 20px;
 }
 
 .singleSpotDesc {
@@ -61,6 +64,8 @@
   justify-content: space-between;
   margin-bottom: 10px;
   height: 70px;
+  margin-top: 15px;
+  padding-bottom: 20px;
 }
 
 #actualOwner {
@@ -74,6 +79,7 @@
   display: flex;
   justify-content: space-around;
   flex-direction: column;
+  padding-bottom: 20px;
 }
 
 .aircoverBox {
@@ -88,4 +94,14 @@
 #aircoverLogo {
   height: 30px;
   width: 180px;
+}
+
+.spotDescriptionBox {
+  height: 100px;
+  margin-top: 20px;
+  /* padding-top: 20px; */
+}
+
+#spotStar {
+  margin-right: 3px;
 }
