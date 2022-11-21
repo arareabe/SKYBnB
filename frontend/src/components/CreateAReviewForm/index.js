@@ -63,19 +63,19 @@ const CreateAReviewForm = () => {
             />
           </div>
           <div>
-            <span>Rate your SkyBnB</span>
+            <span id='reviewStarsTop'>Rate those stars!</span>
             {/* <input
               type='number'
               placeholder='stars out of 5'
               value={stars}
               onChange={e => setStars(e.target.value)}
             /> */}
-            <fieldset id='fieldset-stars'class="rate" value={stars} onChange={e => setStars(e.target.value)}>
-                <input className="starInput" type="radio" id="rating10" name="rating" value="5" /><label for="rating10" title="5 stars"></label>
-                <input className="starInput" type="radio" id="rating8" name="rating" value="4" /><label for="rating8" title="4 stars"></label>
-                <input className="starInput" type="radio" id="rating6" name="rating" value="3" /><label for="rating6" title="3 stars"></label>
-                <input className="starInput" type="radio" id="rating4" name="rating" value="2" /><label for="rating4" title="2 stars"></label>
-                <input className="starInput" type="radio" id="rating2" name="rating" value="1" /><label for="rating2" title="1 star"></label>
+            <fieldset className='reviewStars' value={stars} onChange={e => setStars(e.target.value)}>
+                <input className="reviewStar" type="radio" id="rating10" name="rating" value="1" /><label className='actualStar' title="5 stars"></label>
+                <input className="reviewStar" type="radio" id="rating8" name="rating" value="2" /><label className='actualStar' title="5 stars"></label>
+                <input className="reviewStar" type="radio" id="rating6" name="rating" value="3" /><label className='actualStar' title="5 stars"></label>
+                <input className="reviewStar" type="radio" id="rating4" name="rating" value="4" /><label className='actualStar' title="5 stars"></label>
+                <input className="reviewStar" type="radio" id="rating2" name="rating" value="5" /><label className='actualStar' title="5 stars"></label>
             </fieldset>
           </div>
         </div>
@@ -91,8 +91,8 @@ const CreateAReviewForm = () => {
           </div>
         )}
 
-        <div>
-          <button type='submit'>Submit your SkyBnB review!</button>
+        <div className='reviewsButton'>
+          <button id='submitButton' type='submit'>Submit your SkyBnB review!</button>
         </div>
       </form>
     </div>

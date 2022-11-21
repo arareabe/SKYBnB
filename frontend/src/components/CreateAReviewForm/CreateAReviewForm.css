@@ -5,14 +5,47 @@
 .createReviewBox {
   display: flex;
   flex-direction: column;
-  justify-content: center;
 }
 
 #reviewTextarea {
   border-radius: 15px;
   resize: none;
+  width: 400px;
+  height: 100px;
+  border: 1px solid lightgrey;
 }
 
 .reviewTextBox {
   padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.reviewsButton {
+  padding-top: 20px;
+}
+
+#submitButton {
+  background-color: red;
+  color: white;
+  border-radius: 12px;
+  border: none;
+  font-size: 20px;
+  padding: 10px;
+}
+
+#reviewStarsTop {
+  font-size: 20px;
+}
+
+.reviewStars {
+  border: 1px solid lightgrey;
+  margin-top: 10px;
+  width: 100px;
+  border-radius: 900px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.actualStar {
+  content: "★";
 }
