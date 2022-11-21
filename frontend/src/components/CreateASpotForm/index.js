@@ -155,13 +155,13 @@ const CreateASpotForm = () => {
         </div>
 
         {hasSubmitted && validationErrors.length > 0 && (
-          <div>
+          <div id='validErrsTitle'>
             To submit a new SkyBnB, please handle the following errors:
-            <ul>
+            <div className='createValidErrs'>
               {validationErrors.map((error) => (
-                <li key={error}>{error}</li>
+                <div key={error}>{error}</div>
               ))}
-            </ul>
+            </div>
           </div>
         )}
 

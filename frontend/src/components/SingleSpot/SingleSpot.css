@@ -4,7 +4,7 @@
   grid-template-columns: 20% 45% 35%;
   grid-template-areas:
   '. name .'
-  '. topInfo .'
+  '. topInfo buttons'
   '. image .'
   '. description sidebox'
   '. reviews .'
@@ -114,4 +114,13 @@
   font-weight: bold;
   padding-top: 20px;
   padding-bottom: 40px;
+}
+
+.singleUserButtons {
+  grid-area:buttons;
+  display: flex;
+  flex-direction: column;
+  width: 176px;
+  padding-left: 20px;
+
 }
