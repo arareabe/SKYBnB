@@ -46,6 +46,10 @@
   justify-content: space-evenly;
 }
 
-.actualStar {
+.actualStar::before {
   content: "★";
+}
+
+.reviewStar {
+  display: none;
 }

@@ -71,11 +71,11 @@ const CreateAReviewForm = () => {
               onChange={e => setStars(e.target.value)}
             /> */}
             <fieldset className='reviewStars' value={stars} onChange={e => setStars(e.target.value)}>
-                <input className="reviewStar" type="radio" id="rating10" name="rating" value="1" /><label className='actualStar' title="5 stars"></label>
-                <input className="reviewStar" type="radio" id="rating8" name="rating" value="2" /><label className='actualStar' title="5 stars"></label>
-                <input className="reviewStar" type="radio" id="rating6" name="rating" value="3" /><label className='actualStar' title="5 stars"></label>
-                <input className="reviewStar" type="radio" id="rating4" name="rating" value="4" /><label className='actualStar' title="5 stars"></label>
-                <input className="reviewStar" type="radio" id="rating2" name="rating" value="5" /><label className='actualStar' title="5 stars"></label>
+                <input className="reviewStar" type="radio" value="1" /><label className='actualStar'></label>
+                <input className="reviewStar" type="radio" value="2" /><label className='actualStar'></label>
+                <input className="reviewStar" type="radio" value="3" /><label className='actualStar'></label>
+                <input className="reviewStar" type="radio" value="4" /><label className='actualStar'></label>
+                <input className="reviewStar" type="radio" value="5" /><label className='actualStar'></label>
             </fieldset>
           </div>
         </div>
