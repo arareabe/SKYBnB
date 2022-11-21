@@ -1,0 +1,18 @@
+#reviewTop {
+  padding-bottom: 10px;
+}
+
+.createReviewBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#reviewTextarea {
+  border-radius: 15px;
+  resize: none;
+}
+
+.reviewTextBox {
+  padding-top: 20px;
+}

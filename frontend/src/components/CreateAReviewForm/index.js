@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
+import './CreateAReviewForm.css'
 
 import { createAReview } from '../../store/reviews';
 
@@ -47,22 +48,36 @@ const CreateAReviewForm = () => {
   }
 
   return (
-    <div>
-      <form onSubmit={submitHandler}>
+    <div className='createReviewBox'>
+      <div id='reviewTop'>
         <h2>Review your SkyBnB!</h2>
-
+      </div>
+      <form className='reviewForm' onSubmit={submitHandler}>
         <div>
-          <textarea
-            placeholder='review'
-            value={review}
-            onChange={e => setReview(e.target.value)}
-          />
-          <input
-            type='number'
-            placeholder='stars out of 5'
-            value={stars}
-            onChange={e => setStars(e.target.value)}
-          />
+          <div className='reviewTextBox'>
+            <textarea
+              id='reviewTextarea'
+              placeholder='review'
+              value={review}
+              onChange={e => setReview(e.target.value)}
+            />
+          </div>
+          <div>
+            <span>Rate your SkyBnB</span>
+            {/* <input
+              type='number'
+              placeholder='stars out of 5'
+              value={stars}
+              onChange={e => setStars(e.target.value)}
+            /> */}
+            <fieldset id='fieldset-stars'class="rate" value={stars} onChange={e => setStars(e.target.value)}>
+                <input className="starInput" type="radio" id="rating10" name="rating" value="5" /><label for="rating10" title="5 stars"></label>
+                <input className="starInput" type="radio" id="rating8" name="rating" value="4" /><label for="rating8" title="4 stars"></label>
+                <input className="starInput" type="radio" id="rating6" name="rating" value="3" /><label for="rating6" title="3 stars"></label>
+                <input className="starInput" type="radio" id="rating4" name="rating" value="2" /><label for="rating4" title="2 stars"></label>
+                <input className="starInput" type="radio" id="rating2" name="rating" value="1" /><label for="rating2" title="1 star"></label>
+            </fieldset>
+          </div>
         </div>
 
         {hasSubmitted && validationErrors.length > 0 && (

@@ -1,5 +1,6 @@
 .reviewBox {
-  border: 1px solid blue;
+  border-bottom: 1px solid lightgrey;
+  padding-bottom: 20px;
 }
 
 #skyBnbReview {
@@ -23,4 +24,8 @@
   font-style: italic;
   padding-left: 10px;
   font-weight: 200px;
+}
+
+.outerReviewForm {
+  padding-top: 20px;
 }

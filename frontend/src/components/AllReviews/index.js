@@ -77,7 +77,7 @@ const AllReviews = ({ spotId }) => {
         ))}
       </div>
 
-      <div>
+      <div className='outerReviewForm'>
         {createReviewForm}
       </div>
     </div>
