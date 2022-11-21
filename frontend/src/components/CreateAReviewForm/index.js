@@ -63,7 +63,7 @@ const CreateAReviewForm = () => {
             />
           </div>
           <div>
-            <span id='reviewStarsTop'>Rate those stars!</span>
+            <span id='reviewStarsTop'>Rate your SkyBnB!</span>
             {/* <input
               type='number'
               placeholder='stars out of 5'

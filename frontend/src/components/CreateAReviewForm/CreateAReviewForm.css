@@ -46,10 +46,10 @@
   justify-content: space-evenly;
 }
 
-.actualStar::before {
+/* .actualStar::before {
   content: "★";
-}
-
+} */
+/* 
 .reviewStar {
   display: none;
-}
+} */
