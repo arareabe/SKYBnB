@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { NavLink, useHistory } from 'react-router-dom';
+import './CreateASpotForm.css'
 
 import { createASpot } from '../../store/spots';
 
@@ -77,66 +78,76 @@ const CreateASpotForm = () => {
   }
 
   return (
-    <div>
-      <form onSubmit={submitHandler}>
-        <h2>SkyBnB your new home!</h2>
-        <div>
+    <div className='createFormWrapper'>
+      <form className='createFormPage' onSubmit={submitHandler}>
+        <h2 id='createFormTitle'>SkyBnB your new home!</h2>
+        <div className='createInputWrapper'>
           <input
             type='text'
+            className='createInput'
             placeholder='address'
             value={address}
             onChange={e => setAddress(e.target.value)}
           />
           <input
             type='text'
+            className='createInput'
             placeholder='city'
             value={city}
             onChange={e => setCity(e.target.value)}
           />
           <input
             type='text'
+            className='createInput'
             placeholder='state'
             value={state}
             onChange={e => setState(e.target.value)}
           />
           <input
             type='text'
+            className='createInput'
             placeholder='country'
             value={country}
             onChange={e => setCountry(e.target.value)}
           />
           <input
             type='number'
+            className='createInput'
             placeholder='latitude'
             value={lat}
             onChange={e => setLat(e.target.value)}
           />
           <input
             type='number'
+            className='createInput'
             placeholder='longitude'
             value={lng}
             onChange={e => setLng(e.target.value)}
           />
           <input
             type='text'
+            className='createInput'
             placeholder='name'
             value={name}
             onChange={e => setName(e.target.value)}
           />
           <input
             type='text'
+            className='createInput'
             placeholder='description'
             value={description}
             onChange={e => setDescription(e.target.value)}
           />
           <input
             type='number'
+            className='createInput'
             placeholder='$$$'
             value={price}
             onChange={e => setPrice(e.target.value)}
           />
           <input
             type='text'
+            className='createInput'
             placeholder='image'
             value={imgUrl}
             onChange={e => setImgUrl(e.target.value)}
@@ -154,8 +165,8 @@ const CreateASpotForm = () => {
           </div>
         )}
 
-        <div>
-          <button type='submit'>Create your new SkyBnB!</button>
+        <div id='createSpotButton'>
+          <button id='actualCreateButton' type='submit'>Host your SkyBnB!</button>
         </div>
       </form>
     </div>

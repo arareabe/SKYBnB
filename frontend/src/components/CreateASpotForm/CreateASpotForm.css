@@ -1,0 +1,42 @@
+.createFormWrapper {
+  margin: 30px auto;
+  border: 2px solid lightgrey;
+  box-shadow: 3px 3px 7px grey;
+  width: 800px;
+  border-radius: 14px;
+  padding: 20px;
+  height: 800px;
+}
+
+.createInputWrapper{
+  display: flex;
+  flex-direction: column;
+  margin: 15px;
+  border-radius: 12px;
+}
+
+#createFormTitle {
+  font-size: 26px;
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid lightgrey;
+  padding-bottom: 20px;
+}
+
+.createFormPage {
+  padding: 20px;
+}
+
+#createSpotButton {
+  display: flex;
+  justify-content: center;
+}
+
+#actualCreateButton {
+  width: 730px;
+  border-radius: 20px;
+  background-color: lightcoral;
+  color: white;
+  padding: 15px;
+  font-size: 26px;
+}
