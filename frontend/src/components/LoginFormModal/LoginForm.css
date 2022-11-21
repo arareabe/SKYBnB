@@ -1,0 +1,60 @@
+.loginFormModal {
+  position: fixed;
+  background-color: white;
+  top: 200px;
+  left: 42%;
+  width: 400px;
+  height: 600px;
+  padding: 40px;
+  border: 1px solid rgb(160, 155, 155);
+  border-radius: 20px;
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+#loginTitle {
+  font-size: 30px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid lightgrey;
+  font-weight: 550;
+}
+
+#usernameField {
+  margin-top: 60px;
+  padding: 15px;
+  border-radius: 10px;
+  width: 350px;
+  border: 4px solid lightgrey;
+  font-size: 20px;
+}
+
+#passwordField {
+  margin-top: 20px;
+  padding: 15px;
+  border-radius: 10px;
+  width: 350px;
+  border: 4px solid lightgrey;
+  font-size: 20px;
+}
+
+#loginButton {
+  background-color: lightcoral;
+  border: none;
+  border-radius: 20px;
+  margin-top: 30px;
+  color: white;
+  width: 350px;
+  padding: 15px;
+  font-size: 20px;
+}
+
+.validErrs {
+  margin-top: 20px;
+  color: red;
+  font-size: 18px;
+}
