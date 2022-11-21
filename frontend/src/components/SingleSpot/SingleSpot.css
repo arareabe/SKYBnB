@@ -1,6 +1,6 @@
 .singleSpotGrid {
   display: grid;
-  grid-template-rows: 70px 50px 600px 0.5fr 1fr;
+  grid-template-rows: 49px 35px 420px 0.5fr 1fr;
   grid-template-columns: 20% 45% 35%;
   grid-template-areas:
   '. name .'
@@ -13,9 +13,9 @@
 .singleSpotName {
   display: grid;
   grid-area: name;
-  margin-top: 20px;
-  font-size: 18px;
-  padding-bottom: 15px;
+  margin-top: 14px;
+  font-size: 12.6px;
+  padding-bottom: 10.5px;
 }
 
 .singleSpotTopInfo {
@@ -31,7 +31,7 @@
 }
 
 #actualImg {
-  height: 600px;
+  height: 420px;
   border-radius: 13px;
 }
 
@@ -41,11 +41,11 @@
   flex-direction: column;
   border: solid 3px lightgrey;
   border-radius: 14px;
-  padding: 20px;
+  padding: 14px;
   margin-right: auto;
   justify-content: space-around;
-  height: 130px;
-  font-size: 20px;
+  height: 91px;
+  font-size: 14px;
 }
 
 .singleSpotDesc {
@@ -64,20 +64,20 @@
   flex-direction: column;
   border-bottom: 1px solid lightgrey;
   justify-content: space-between;
-  margin-bottom: 10px;
-  height: 70px;
-  margin-top: 15px;
-  padding-bottom: 20px;
+  margin-bottom: 7px;
+  height: 49px;
+  margin-top: 10.5px;
+  padding-bottom: 14px;
 }
 
 #actualOwner {
-  font-size: 30px;
+  font-size: 21px;
   font-weight: bold;
 }
 
 .spotPerks {
   border-bottom: 1px solid lightgrey;
-  height: 220px;
+  height: 154px;
   display: flex;
   justify-content: space-around;
   flex-direction: column;
@@ -85,8 +85,8 @@
 }
 
 .aircoverBox {
-  height: 150px;
-  margin-top: 20px;
+  height: 105px;
+  margin-top: 14px;
   display: flex;
   justify-content: space-around;
   flex-direction: column;
@@ -94,33 +94,33 @@
 }
 
 #aircoverLogo {
-  height: 30px;
-  width: 180px;
+  height: 21px;
+  width: 126px;
 }
 
 .spotDescriptionBox {
-  height: 80px;
-  margin-top: 20px;
+  height: 56px;
+  margin-top: 14px;
   /* padding-top: 20px; */
   border-bottom: 1px solid lightgrey;
 }
 
 #spotStar {
-  margin-right: 3px;
+  margin-right: 2px;
 }
 
 .reviewTop {
-  font-size: 24px;
+  font-size: 16.8px;
   font-weight: bold;
-  padding-top: 20px;
-  padding-bottom: 40px;
+  padding-top: 14px;
+  padding-bottom: 28px;
 }
 
 .singleUserButtons {
   grid-area:buttons;
   display: flex;
   flex-direction: column;
-  width: 310px;
+  width: 217px;
 }
 
 .singleUserEditDelete {
@@ -129,9 +129,9 @@
   background-color: lightcoral;
   color: white;
   text-decoration: none;
-  font-size: 20px;
+  font-size: 14px;
   border: none;
   border-radius: 12px;
-  padding: 10px;
-  margin-bottom: 20px;
+  padding: 7px;
+  margin-bottom: 14px;
 }
