@@ -175,7 +175,7 @@ const EditSpotForm = () => {
             To submit a new SkyBnB, please handle the following errors:
             <div className='createValidErrs'>
               {validationErrors.map((error) => (
-                <div key={error}>{error}</div>
+                <div id='validErrsCaption' key={error}>{error}</div>
               ))}
             </div>
           </div>
