@@ -1,6 +1,6 @@
 #skyBnb {
-  width: 150px;
-  margin: 1px 20px 20px 150px;
+  width: 105px;
+  margin: 1px 14px 14px 105px;
 }
 
 .navHeader {
@@ -8,19 +8,19 @@
   justify-content: space-between;
   border-bottom: solid 1px lightgrey;
   position: sticky;
-  height: 160px;
+  height: 112px;
 }
 
 .navModal {
   display: flex;
   justify-content: space-between;
-  margin: 30px 150px 20px;
-  width: 300px;
+  margin: 21px 105px 14px;
+  width: 210px;
   align-items: center;
 }
 
 .hostLink {
-  font-size: 24px;
+  font-size: 16.8px;
 }
 
 #actualHostLink {

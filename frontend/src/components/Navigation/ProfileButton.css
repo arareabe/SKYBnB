@@ -1,6 +1,6 @@
 .userButton {
-  width: 80px;
-  height: 50px;
+  width: 56px;
+  height: 35px;
   border-radius: 20px;
   background-color: white;
   border: 3px solid lightgrey;
@@ -12,9 +12,9 @@
   flex-direction: column;
   border: 1px solid lightgrey;
   align-items: flex-start;
-  padding-left: 20px;
-  padding-right: 20px;
-  height: 110px;
+  padding-left: 14px;
+  padding-right: 14px;
+  height: 77px;
   justify-content: space-evenly;
   border-radius: 25px;
   background-color: lightgrey;
@@ -25,5 +25,5 @@
   background: lightcoral;
   color: white;
   border-radius: 25px;
-  padding: 5px;
+  padding: 3.5px;
 }
