@@ -87,8 +87,8 @@ const SingleSpot = () => {
 
       {currentUser && currentUser.id === theSpot.Owner?.id && (
         <div className='singleUserButtons'>
-          <NavLink to={`/spots/${spotId}/edit`}>Edit your SkyBnB</NavLink>
-          <button onClick={() => removeSpot()}>Delete your SkyBnB</button>
+          <NavLink className='singleUserEditDelete' to={`/spots/${spotId}/edit`}>Edit your SkyBnB</NavLink>
+          <button className='singleUserEditDelete' onClick={() => removeSpot()}>Delete your SkyBnB</button>
         </div>
       )}
 

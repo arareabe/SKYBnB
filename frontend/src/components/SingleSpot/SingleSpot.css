@@ -120,7 +120,18 @@
   grid-area:buttons;
   display: flex;
   flex-direction: column;
-  width: 176px;
-  padding-left: 20px;
+  width: 310px;
+}
 
+.singleUserEditDelete {
+  display: flex;
+  justify-content: center;
+  background-color: lightcoral;
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  border: none;
+  border-radius: 12px;
+  padding: 10px;
+  margin-bottom: 20px;
 }
