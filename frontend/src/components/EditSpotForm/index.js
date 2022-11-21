@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useHistory, useParams } from 'react-router-dom';
+import './EditSpotForm.css'
 
 import { updateASpot, getSingularSpot } from '../../store/spots';
 
@@ -82,66 +83,76 @@ const EditSpotForm = () => {
   }
 
   return (
-    <div>
-      <form onSubmit={submitHandler}>
-        <h2>Update your SkyBnB!</h2>
-        <div>
+    <div className='editFormWrapper'>
+      <form className='editFormPage' onSubmit={submitHandler}>
+        <h2 id='editFormTitle'>Update your SkyBnB!</h2>
+        <div className='editInputWrapper'>
           <input
             type='text'
+            className='editInput'
             placeholder='address'
             value={address}
             onChange={e => setAddress(e.target.value)}
           />
           <input
             type='text'
+            className='editInput'
             placeholder='city'
             value={city}
             onChange={e => setCity(e.target.value)}
           />
           <input
             type='text'
+            className='editInput'
             placeholder='state'
             value={state}
             onChange={e => setState(e.target.value)}
           />
           <input
             type='text'
+            className='editInput'
             placeholder='country'
             value={country}
             onChange={e => setCountry(e.target.value)}
           />
           <input
             type='number'
+            className='editInput'
             placeholder='latitude'
             value={lat}
             onChange={e => setLat(e.target.value)}
           />
           <input
             type='number'
+            className='editInput'
             placeholder='longitude'
             value={lng}
             onChange={e => setLng(e.target.value)}
           />
           <input
             type='text'
+            className='editInput'
             placeholder='name'
             value={name}
             onChange={e => setName(e.target.value)}
           />
           <input
             type='text'
+            className='editInput'
             placeholder='description'
             value={description}
             onChange={e => setDescription(e.target.value)}
           />
           <input
             type='number'
+            className='editInput'
             placeholder='$$$'
             value={price}
             onChange={e => setPrice(e.target.value)}
           />
           <input
             type='text'
+            className='editInput'
             placeholder='image'
             value={imgUrl}
             onChange={e => setImgUrl(e.target.value)}
@@ -149,18 +160,18 @@ const EditSpotForm = () => {
         </div>
 
         {hasSubmitted && validationErrors.length > 0 && (
-          <div>
+          <div id='validErrsTitle'>
             To submit a new SkyBnB, please handle the following errors:
-            <ul>
+            <div className='createValidErrs'>
               {validationErrors.map((error) => (
-                <li key={error}>{error}</li>
+                <div key={error}>{error}</div>
               ))}
-            </ul>
+            </div>
           </div>
         )}
 
-        <div>
-          <button type='submit'>Update your SkyBnB!</button>
+        <div id='editSpotButton'>
+          <button id='actualEditButton' type='submit'>Update your SkyBnB!</button>
         </div>
       </form>
     </div>
