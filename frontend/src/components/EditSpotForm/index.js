@@ -43,7 +43,18 @@ const EditSpotForm = () => {
   }, [address, city, state, country, lat, lng, name, description, price, imgUrl])
 
   useEffect(() => {
-    dispatch(getSingularSpot(spotId)).then(res => console.log("THIS IS THE RES ", res));
+    dispatch(getSingularSpot(spotId)).then(res => {
+      setAddress(res.address);
+      setCity(res.city);
+      setState(res.state);
+      setCountry(res.country);
+      setLat(res.lat);
+      setLng(res.lng);
+      setName(res.name);
+      setDescription(res.description);
+      setPrice(res.price);
+      setImgUrl(res.SpotImages[0].url)
+    });
   }, [dispatch]);
 
   const submitHandler = async (e) => {
