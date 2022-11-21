@@ -6,4 +6,24 @@
   border: 3px solid lightgrey;
 }
 
+.profile-dropdown {
+  position:absolute;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid lightgrey;
+  align-items: flex-start;
+  padding-left: 20px;
+  padding-right: 20px;
+  height: 110px;
+  justify-content: space-evenly;
+  border-radius: 25px;
+  background-color: lightgrey;
+  color: white;
+}
 
+.profileButtons {
+  background: lightcoral;
+  color: white;
+  border-radius: 25px;
+  padding: 5px;
+}
