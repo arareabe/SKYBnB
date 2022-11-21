@@ -1,4 +1,4 @@
-![skybnb-logo](https://i.imgur.com/yK6f0q5.jpg?width=1000&height=200)
+![skybnb-logo](https://i.imgur.com/yK6f0q5.jpg?width=600&height=200)
 
 Presenting AirBnB's (cooler) cousin: [skybnb](https://skybnb-superiorcousin.herokuapp.com/) 
 
