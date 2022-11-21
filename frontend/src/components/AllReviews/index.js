@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams, NavLink } from 'react-router-dom';
 import { getAllReviews, removeAReview } from '../../store/reviews';
 import CreateAReviewForm from '../CreateAReviewForm';
+import './AllReviews.css'
 
 const AllReviews = ({ spotId }) => {
   const dispatch = useDispatch();
@@ -54,19 +55,19 @@ const AllReviews = ({ spotId }) => {
   }
 
   return (
-    <div>
-      <div>
-        {currSpot.avgRating} · {currSpot.numReviews} {currSpot.numReviews === 1 ? 'review' : 'reviews'}
-      </div>
-
+    <div className='allReviews'>
       <div>
         {allReviews.map(review => (
-          <div>
-            <div>
-              {review.User?.firstName} rates this SkyBnB {review.stars}!
-              {/* {console.log("HEY THIS IS REVIEW BUDDY ", review)} */}
+          <div className='reviewBox'>
+            <div className='reviewerDetails'>
+              <span>
+                <img id='skyBnbReview' src='https://i.imgur.com/yK6f0q5.jpg' />
+              </span>
+              <span id='reviewerName'>
+                {review.User?.firstName} rates this SkyBnB <i id='spotStar' className="fa-sharp fa-solid fa-star"></i>{review.stars}!
+              </span>
             </div>
-            <div>
+            <div id='actualReview'>
               {review.review}
             </div>
             <div>

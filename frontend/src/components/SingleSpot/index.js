@@ -93,7 +93,12 @@ const SingleSpot = () => {
       )}
 
       <div className='singleSpotReviews'>
-        <AllReviews spotId={spotId} />
+        <div className='reviewTop'>
+          <i id='spotStar' className="fa-sharp fa-solid fa-star"></i>{theSpot.avgRating} · {theSpot.numReviews} {theSpot.numReviews === 1 ? 'review' : 'reviews'}
+        </div>
+        <div>
+          <AllReviews spotId={spotId} />
+        </div>
       </div>
 
     </div>
