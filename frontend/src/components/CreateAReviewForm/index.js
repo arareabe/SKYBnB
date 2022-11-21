@@ -71,23 +71,23 @@ const CreateAReviewForm = () => {
               onChange={e => setStars(e.target.value)}
             /> */}
             <fieldset className='reviewStars' value={stars} onChange={e => setStars(e.target.value)}>
-                <input className="reviewStar" type="radio" value="1" /><label className='actualStar'></label>
-                <input className="reviewStar" type="radio" value="2" /><label className='actualStar'></label>
-                <input className="reviewStar" type="radio" value="3" /><label className='actualStar'></label>
-                <input className="reviewStar" type="radio" value="4" /><label className='actualStar'></label>
-                <input className="reviewStar" type="radio" value="5" /><label className='actualStar'></label>
+                <input className="reviewStar" type="radio" value="1" />
+                <input className="reviewStar" type="radio" value="2" />
+                <input className="reviewStar" type="radio" value="3" />
+                <input className="reviewStar" type="radio" value="4" />
+                <input className="reviewStar" type="radio" value="5" />
             </fieldset>
           </div>
         </div>
 
         {hasSubmitted && validationErrors.length > 0 && (
-          <div>
+          <div id='reviewFormTitle'>
             To submit a review, please handle the following errors:
-            <ul>
+            <div>
               {validationErrors.map((error) => (
-                <li key={error}>{error}</li>
+                <div key={error}>{error}</div>
               ))}
-            </ul>
+            </div>
           </div>
         )}
 

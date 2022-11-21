@@ -45,7 +45,7 @@ const AllReviews = ({ spotId }) => {
       return null
     } else {
       return (
-        <button onClick={() => {
+        <button id='deleteReview' onClick={() => {
           dispatch(removeAReview(reviewId))
         }}>
           Delete your review!
