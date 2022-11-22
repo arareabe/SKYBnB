@@ -51,6 +51,10 @@ function LoginForm({ setShowModal }) {
           required
         />
         <button id='loginButton' type="submit">Log In</button>
+        <button id='loginButton' type='submit' onClick={() => {
+          setCredential('Demo-lition')
+          setPassword('password')
+        }}>Demo Login</button>
       </form>
     </div>
   );
