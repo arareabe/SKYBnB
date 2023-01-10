@@ -90,7 +90,7 @@ export const createASpot = (newSpot, imgUrl) => async dispatch => {
       return createdSpot;
     }
   }
-;}
+};
 
 export const updateASpot = (spotId, updatedInfo) => async dispatch => {
   const res = await csrfFetch(`/api/spots/${spotId}`, {
