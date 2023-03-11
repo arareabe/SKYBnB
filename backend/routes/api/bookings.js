@@ -4,44 +4,42 @@ const { requireAuth } = require('../../utils/auth');
 const { Booking, Spot, SpotImage } = require('../../db/models');
 
 const router = express.Router();
+const { Op } = require('sequelize');
 
 // Get all of the Current User's Bookings
-router.get('/current', requireAuth, async (req, res) => {
+router.get('/current', requireAuth, async (req, res, next) => {
+  const userId = req.user.id;
+  let Bookings = [];
 
-  const allBookings = await Booking.findAll({
+  const findBookings = await Booking.findAll({
     where: {
-      userId: req.user.id
+      userId
     },
-    include: [
-      {
-        model: Spot,
-        attributes: {
-          exclude: ['description', 'createdAt', 'updatedAt']
-        }
-      }
-    ]
+    include: {
+      model: Spot,
+      // attributes: {
+      //   exclude: ['createdAt', 'updatedAt', 'description']
+      // }
+    }
   });
 
-  for (let i = 0; i < allBookings.length; i++) {
-    let currBooking = allBookings[i].toJSON();
+  console.log("PEEEEEEEEEEEEEEEEEEEEEE", findBookings)
+  // adding preview image to each Spot
+  for (let i = 0; i < findBookings.length; i++) {
+    const booking = findBookings[i].toJSON();
+    const spotId = booking.Spot.id;
 
-    const bookingPrev = await SpotImage.findOne({
+    let previewImage = await SpotImage.findOne({
       where: {
-        preview: true,
-        spotId: currBooking.spotId
+        [Op.and]: [{ preview: true }, { spotId }]
       }
     });
+    if (previewImage) booking.Spot.previewImage = previewImage.url;
 
-    if (!bookingPrev) {
-      currBooking.Spot.previewImage = 'None available!'
-    } else {
-      currBooking.Spot.previewImage = bookingPrev.url
-    }
+    Bookings.push(booking);
+  }
 
-    allBookings[i] = currBooking;
-  };
-
-  return res.json({ Bookings: allBookings });
+  return res.json({ Bookings });
 });
 
 // Edit a Booking

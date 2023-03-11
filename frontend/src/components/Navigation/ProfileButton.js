@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from 'react-redux';
+import { NavLink } from "react-router-dom";
 import * as sessionActions from '../../store/session';
 import './ProfileButton.css';
 
@@ -36,7 +37,7 @@ function ProfileButton({ user, setLogin, setShowModal }) {
       </button>
       {showMenu && (user ?
         (<ul className="profile-dropdown">
-          <div>{user.username}</div>
+          <NavLink to='/user' id='profile-button-name'>{user.username}</NavLink>
           <div>{user.email}</div>
           <div>
             <button className='profileButtons' onClick={logout}>Log Out</button>

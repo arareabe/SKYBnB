@@ -10,6 +10,10 @@
   justify-content: center;
 }
 
+.allSpotsWrap {
+  width: 100%;
+}
+
 .spotCards {
   display: grid;
   grid-template-columns: repeat(5, 1fr);

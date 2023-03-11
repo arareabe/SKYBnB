@@ -21,7 +21,7 @@ const AllSpots = () => {
   if (!allSpots) return 'Loading all available spots!...'
 
   return (
-    <div>
+    <div className='allSpotsWrap'>
       {/* <div className='titlePage'>
         <h1>Welcome to SkyBnB!</h1>
       </div> */}

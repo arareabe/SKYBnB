@@ -2,7 +2,6 @@
   "name": "authenticate-me",
   "version": "1.0.0",
   "main": "index.js",
-  "devDependencies": {},
   "scripts": {
     "render-postbuild": "npm run build --prefix frontend",
     "install": "npm --prefix backend install backend && npm --prefix frontend install frontend",
@@ -24,5 +23,8 @@
     "url": "https://github.com/arareabe/SKYBnB/issues"
   },
   "homepage": "https://github.com/arareabe/SKYBnB#readme",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "@wojtekmaj/react-daterange-picker": "^4.2.0"
+  }
 }

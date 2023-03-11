@@ -8,6 +8,7 @@ import AllSpots from './components/AllSpots';
 import SingleSpot from './components/SingleSpot';
 import CreateASpotForm from './components/CreateASpotForm';
 import EditSpotForm from "./components/EditSpotForm";
+import User from "./components/User";
 
 function App() {
   const dispatch = useDispatch();
@@ -28,6 +29,9 @@ function App() {
           <Route path="/signup">
             <SignupFormPage />
           </Route>
+          <Route exact path="/user">
+						<User />
+					</Route>
           <Route path='/spots/create'>
             <CreateASpotForm />
           </Route>

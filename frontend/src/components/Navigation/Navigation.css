@@ -27,3 +27,27 @@
   text-decoration: none;
   color: lightcoral;
 }
+
+.navBarSearchWrapper {
+  display: flex;
+  align-items: center;
+  border: 1px solid lightgray;
+  padding: 5px;
+  border-radius: 10px;
+  margin-left: 5px;
+  width: 30rem;
+  height: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+#navBarSearch {
+  padding-top: 0.2rem;
+}
+
+input:focus{
+  outline: none;
+}
+
+#search-bar {
+  border: none;
+}

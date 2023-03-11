@@ -27,3 +27,8 @@
   border-radius: 25px;
   padding: 3.5px;
 }
+
+#profile-button-name {
+  text-decoration: none;
+  color: white;
+}

@@ -1,6 +1,10 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams, NavLink, useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux';
+import { Modal } from '../../context/Modal';
+import DateRangePicker from '@wojtekmaj/react-daterange-picker/dist/entry.nostyle';
+import * as bookingActions from '../../store/booking'
+import useModalVariableContext from '../../context/ModalVariable';
 
 import { getSingularSpot, removeASpot } from '../../store/spots';
 import AllReviews from '../AllReviews';
@@ -10,10 +14,165 @@ const SingleSpot = () => {
   const { spotId } = useParams();
   const dispatch = useDispatch();
   const history = useHistory();
+  const user = useSelector((state) => state.session.user);
+
+	const [bookingDates, setBookingDates] = useState('');
+	const [selectedStartDate, setSelectedStartdate] = useState('');
+	const [spotBookings, setSpotBookings] = useState([]);
+	const [serviceFee, setServiceFee] = useState(0);
+	const [totalPrice, setTotalPrice] = useState(0);
+	const [priceBeforeFee, setPriceBeforeFee] = useState(0);
+	const [totalStay, setTotalStay] = useState(0);
+	const [tax, setTax] = useState(0);
+	const [grandTotal, setGrandTotal] = useState(0);
+	const [bookingDetails, setBookingDetails] = useState(false);
+	const [availabilityButton, setAvailabilityButton] = useState('');
+
+	const [haveDateSelected, setHaveDateSelected] = useState(true);
+	const [calendarOpened, setCalendarOpened] = useState(false);
+
+	const [haveCalendarRendered, setHaveCalendarRendered] = useState(false);
+
+	// const {
+	// 	showModalLogin,
+	// 	setShowModalLogin,
+	// 	showModalSignup,
+	// 	setShowModalSignup
+	// } = useModalVariableContext();
+
+	const [errors, setErrors] = useState({});
+
+	const [showBookedModal, setShowBookedModal] = useState(false);
+	const [confirmedDate, setConfirmedDate] = useState('');
 
   useEffect(() => {
     dispatch(getSingularSpot(spotId));
   }, [dispatch, spotId]);
+
+  const formatDate = (date, key) => {
+		const day = new Date(date).toDateString().toString();
+		return day.split(' ')[0].split('').slice(0, 2).join('');
+	};
+
+	function currencyFormat(num) {
+		return num.toLocaleString('en-US', {
+			style: 'currency',
+			currency: 'USD'
+		});
+	};
+
+	useEffect(() => {
+		const box = document.getElementsByClassName(
+			'react-daterange-picker__inputGroup'
+		);
+		const checkIn = document.createElement('div');
+		const checkOut = document.createElement('div');
+		checkIn.classList.add('date-checkin-label');
+		checkOut.classList.add('date-checkin-label');
+
+		const contentCheckIn = document.createTextNode('CHECK-IN');
+		const contentCheckOut = document.createTextNode('CHECK-OUT');
+		checkIn.appendChild(contentCheckIn);
+		checkOut.appendChild(contentCheckOut);
+		box[0].prepend(checkIn);
+		box[1].prepend(checkOut);
+	}, []);
+
+	useEffect(() => {
+		if (bookingDates) {
+			setBookingDetails(true);
+			setHaveDateSelected(false);
+			const totalStay = Math.floor(
+				(new Date(bookingDates[1]) - new Date(bookingDates[0])) / 86400000
+			);
+			const priceBeforeFee = parseInt(theSpot.price * totalStay);
+			const serviceFee = parseInt((theSpot.price * totalStay * 0.145).toFixed(0));
+			const totalPrice = serviceFee + priceBeforeFee + 300;
+			const taxes = totalPrice * 0.15;
+			const grandTotal = totalPrice + taxes;
+			setPriceBeforeFee(currencyFormat(priceBeforeFee));
+			setServiceFee(currencyFormat(serviceFee));
+			setTotalPrice(currencyFormat(totalPrice));
+			setTotalStay(totalStay);
+			setTax(currencyFormat(taxes));
+			setGrandTotal(currencyFormat(grandTotal));
+		} else {
+			setBookingDetails(false);
+			setHaveDateSelected(true);
+		}
+	}, [bookingDates]);
+
+	// move the open calendar button into a different place.
+	useEffect(() => {
+		if (haveDateSelected) {
+			let calendarButton = document.getElementById('show-calendar-button');
+			const newLocationForButton = document.getElementById('show-calendar-div');
+			if (!availabilityButton) setAvailabilityButton(calendarButton);
+			calendarButton = availabilityButton ? availabilityButton : calendarButton;
+			newLocationForButton.append(calendarButton);
+		} else {
+			const newLocationForButton = document.getElementById('show-calendar-div');
+			while (newLocationForButton.lastElementChild) {
+				newLocationForButton.removeChild(newLocationForButton.lastElementChild);
+			}
+		}
+	}, [haveDateSelected]);
+
+	useEffect(() => {
+		const calendarDiv = document.getElementsByClassName('react-calendar');
+		if (calendarOpened) {
+			const clearDateButton = document.getElementById('clear-date-button');
+			calendarDiv[0].append(clearDateButton);
+		}
+		if (!haveCalendarRendered) setHaveCalendarRendered(calendarDiv);
+	}, [calendarOpened]);
+
+  const handleSubmitBooking = async (e) => {
+		e.preventDefault();
+
+		// if (!user) {
+		// 	return setShowModalLogin(true);
+		// }
+		if (user?.id == theSpot.ownerId) {
+			setHaveDateSelected(true);
+			setBookingDetails(false);
+			setBookingDates('');
+			return window.alert('You cannot book your own spot!');
+		}
+		setConfirmedDate(bookingDates);
+		const startDate = new Date(bookingDates[0])
+			.toJSON()
+			.slice(0, 10)
+			.toString();
+		let endDate = new Date(bookingDates[1]);
+		endDate.setHours(endDate.getHours() - 23);
+		endDate = new Date(endDate).toJSON().slice(0, 10).toString();
+
+		const bookingInfo = { startDate, endDate };
+
+		const newBooking = await dispatch(
+			bookingActions.createBooking(theSpot.id, bookingInfo)
+		).catch(async (res) => {
+			const data = await res.json();
+			if (data && data.errors) {
+				setErrors(data.errors);
+			}
+		});
+		if (newBooking) {
+			let bookings = await dispatch(bookingActions.getSpotBookings(theSpot.id));
+			bookings = bookings.map((booking) => [
+				booking.startDate,
+				booking.endDate
+			]);
+			setSpotBookings(bookings);
+			setErrors({});
+			setHaveDateSelected(true);
+			setBookingDetails(false);
+			setShowBookedModal(true);
+			setBookingDates('');
+		}
+	};
+
 
 
   const theSpot = useSelector(state => state.spots.singleSpot);
@@ -22,6 +181,11 @@ const SingleSpot = () => {
   useEffect(() => {
     console.log(theSpot)
   }, [])
+
+	useEffect(() => {
+		if (errors.endDate || errors.startDate)
+			window.alert(errors.endDate ? errors.endDate : errors.startDate);
+	}, [errors]);
 
   const removeSpot = () => {
     const removedSpot = dispatch(removeASpot(spotId))
@@ -48,10 +212,151 @@ const SingleSpot = () => {
       </div>
 
       <div className='singleSpotSidebar'>
-        <span>${theSpot.price} night {' '}</span>
-        <span><i id='spotStar' className="fa-sharp fa-solid fa-star"></i>{theSpot.avgRating} · {theSpot.numReviews} {theSpot.numReviews === 1 ? 'review' : 'reviews'} {' '}</span>
+        <div>
+          <span>${theSpot.price} night {' '}</span>
+          <span><i id='spotStar' className="fa-sharp fa-solid fa-star"></i>{theSpot.avgRating} · {theSpot.numReviews} {theSpot.numReviews === 1 ? 'review' : 'reviews'} {' '}</span>
+        </div>
+        <DateRangePicker
+						onChange={setBookingDates}
+						value={bookingDates}
+						minDate={new Date()}
+						onClickDay={(value, event) => {
+							if (selectedStartDate) setSelectedStartdate('');
+							else setSelectedStartdate(value.toJSON().slice(0, 10).toString());
+						}}
+						rangeDivider={false}
+						showDoubleView={true}
+						monthPlaceholder={'mm'}
+						yearPlaceholder={'yyyy'}
+						dayPlaceholder={'dd'}
+						showNeighboringMonth={false}
+						calendarIcon={
+							<button id="show-calendar-button">Check availability</button>
+						}
+						clearIcon={
+							calendarOpened ? (
+								<button id="clear-date-button">Clear dates</button>
+							) : null
+						}
+						goToRangeStartOnSelect={false}
+						showFixedNumberOfWeeks={false}
+						tileDisabled={({ activeStartDate, date, view }) => {
+							let currDate = date.toJSON().slice(0, 10).toString();
+							if (currDate <= new Date().toJSON().slice(0, 10)) return true;
+							for (let i = 0; i < spotBookings.length; i++) {
+								let bookingDate = spotBookings[i];
+								if (bookingDate[0] <= currDate && bookingDate[1] >= currDate)
+									return true;
+
+								if (selectedStartDate) {
+									if (selectedStartDate > currDate) return true;
+									if (
+										bookingDate[0] > selectedStartDate &&
+										currDate > bookingDate[0]
+									)
+										return true;
+								}
+							}
+						}}
+						view={'month'}
+						formatShortWeekday={(locale, date) => formatDate(date, 'dd')}
+						onClick={() =>
+							haveCalendarRendered.length ? setCalendarOpened(true) : null
+						}
+						// disabled={disabled}
+						calendarClassName="booking-calendar"
+					/>
+          <div
+						id="show-calendar-div"
+						onClick={() => setCalendarOpened(true)}
+					></div>
+					{bookingDates ? (
+						<button className="reserve-button" onClick={handleSubmitBooking}>
+							Reserve
+						</button>
+					) : null}
+					{bookingDetails && (
+						<>
+							<div className="wrapper-fee">
+								<div>
+									${theSpot.price} x {totalStay} nights
+								</div>
+								<div>{priceBeforeFee}</div>
+							</div>
+							<div className="wrapper-fee">
+								<div>Cleaning fee</div>
+								<div>$300</div>
+							</div>
+							<div className="wrapper-fee feeS">
+								<div>Service fee</div>
+								<div>{serviceFee}</div>
+							</div>
+							<div className="total-price-wrapper">
+								<div className="title-tot">Total: </div>
+								<div className="tot">{totalPrice}</div>
+							</div>
+						</>
+					)}
         {/* <button>Reserve {' '}</button> */}
         <span>You won't be charged yet!</span>
+				{showBookedModal && (
+				<Modal
+					onClose={() => {
+						setShowBookedModal(false);
+					}}
+				>
+					<div className="confirmed-booking-modal-wrapper">
+						<div id="congrat-div">Congratulation, your trip is confirmed!</div>
+						<div className="comfirmed-booking-modal-content-wrapper">
+							<div className="comfirmed-booking-modal-content">
+								<div className="confirmed-booking-modal-title">Dates</div>
+								<div>
+									{new Date(confirmedDate[0]).toDateString().slice(0, 10)} -{' '}
+									{new Date(confirmedDate[1]).toDateString().slice(0, 10)},{' '}
+									{new Date(confirmedDate[1]).toDateString().slice(-4)}
+								</div>
+							</div>
+							<div className="comfirmed-booking-modal-content">
+								<div className="confirmed-booking-modal-title">
+									Price details
+								</div>
+								<div className="fees-wrapper">
+									<div>
+										${theSpot.price} x {totalStay} nights
+									</div>
+									<div>{priceBeforeFee}</div>
+								</div>
+								<div className="fees-wrapper">
+									<div>Cleaning fee</div>
+									<div>$300</div>
+								</div>
+								<div className="fees-wrapper">
+									<div>Service fee</div>
+									<div>{serviceFee}</div>
+								</div>
+								<div className="fees-wrapper serviceFee">
+									<div>Taxes</div>
+									<div>{tax}</div>
+								</div>
+								<div className="total-price-wrapper">
+									<div className="total-title">Total (USD): </div>
+									<div className="total">{grandTotal}</div>
+								</div>
+								<div>
+									You can manage all your trips in your
+									user page.
+								</div>
+								<div
+									className="confirmed-trip-modal-done-button"
+									onClick={() => setShowBookedModal(false)}
+								>
+									Done
+								</div>
+							</div>
+						</div>
+					</div>
+				</Modal>
+			)}
       </div>
 
       <div className='singleSpotDesc'>
