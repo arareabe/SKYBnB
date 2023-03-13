@@ -9,6 +9,7 @@ import SingleSpot from './components/SingleSpot';
 import CreateASpotForm from './components/CreateASpotForm';
 import EditSpotForm from "./components/EditSpotForm";
 import User from "./components/User";
+import Seaque from './components/Seaque';
 
 function App() {
   const dispatch = useDispatch();
@@ -32,6 +33,9 @@ function App() {
           <Route exact path="/user">
 						<User />
 					</Route>
+          <Route path='/search/:searchWord'>
+            <Seaque />
+          </Route>
           <Route path='/spots/create'>
             <CreateASpotForm />
           </Route>
