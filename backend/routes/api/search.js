@@ -4,7 +4,7 @@ const { requireAuth } = require('../../utils/auth');
 const { Spot } = require('../../db/models');
 
 const router = express.Router();
-const { Op } = require('sequelize');
+const { Op, Model } = require('sequelize');
 
 // Get all Spots from search results
 router.get('/search/:searchWord', async (req, res) => {
@@ -53,3 +53,5 @@ router.get('/search/:searchWord', async (req, res) => {
 
   return res.json({ Spots: spotsRes });
 })
+
+module.exports = router;
