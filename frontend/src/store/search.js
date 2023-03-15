@@ -1,4 +1,3 @@
-import { search } from "../../../backend/routes/api";
 import { csrfFetch } from "./csrf";
 
 // TYPES
@@ -15,11 +14,13 @@ const searchResults = (allSpots) => {
 
 // MY THUNKS
 
-export const getAllSeaque = (searchWord) = async (dispatch) => {
+export const getAllSeaque = (searchWord) => async (dispatch) => {
   const res = await csrfFetch(`/api/search/${searchWord}`)
 
   if (res.ok) {
     const allSeaque = await res.json();
+
+    console.log('OOOOOOOOOOOOOOOOP', allSeaque)
     dispatch(searchResults(allSeaque));
     return allSeaque
   }

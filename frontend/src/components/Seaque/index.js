@@ -1,31 +1,32 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 import '../AllSpots/AllSpots.css';
 
-import { getAllSpots } from '../../store/spots';
+import { getAllSeaque } from '../../store/search';
 
 const Seaque = () => {
   const dispatch = useDispatch();
+  const { searchWord } = useParams();
 
-  const allSpots = useSelector(state => Object.values(state.spots.allSpots));
+  const allSpots = useSelector(state => Object.values(state.search.allSeaque));
 
   useEffect(() => {
-    dispatch(getAllSpots())
+    dispatch(getAllSeaque(searchWord))
   }, [dispatch]);
 
   useEffect(() => {
-    console.log('THIS IS RUNNNNNNNNNNNNNNNNING', allSpots);
+    console.log(allSpots);
   })
 
-  // if (!allSpots) return 'Loading all available spots!...'
+  if (!allSpots) return 'Loading all available spots!...'
 
   return (
     <div className='allSpotsWrap'>
-      <div className='titlePage'>
+      {/* <div className='titlePage'>
         <h1>Welcome to SkyBnB!</h1>
-      </div>
-      {/* <div className='spotWrapper'>
+      </div> */}
+      <div className='spotWrapper'>
         <div className='spotCards'>
           {allSpots.map(spot =>
             <div className='spotCard'>
@@ -59,8 +60,8 @@ const Seaque = () => {
               </NavLink>
             </div>
           )}
-        </div> */}
-      {/* </div> */}
+        </div>
+     </div>
     </div>
   )
 }
