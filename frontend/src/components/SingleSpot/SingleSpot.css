@@ -203,7 +203,7 @@
   white-space: pre;
 }
 .react-date-picker__inputGroup__divider{
-  color: gray;
+  color: lightgray;
 }
 .react-daterange-picker__inputGroup__input {
   width: fit-content;
