@@ -30,8 +30,8 @@
 
 .spotCard {
   display: grid;
-  width: 315px;
-  height: 280px;
+  max-width: 19.9rem;
+  height: min-content;
   margin: 10.5px;
 }
 
