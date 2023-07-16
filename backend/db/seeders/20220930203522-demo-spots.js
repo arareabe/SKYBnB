@@ -11,7 +11,7 @@ module.exports = {
     return queryInterface.bulkInsert(options, [
       {
         id: '1',
-        ownerId: '7',
+        ownerId: '1',
         address: '111 Vault Lane',
         city: 'Washington',
         state: 'WA',
@@ -24,7 +24,7 @@ module.exports = {
       },
       {
         id: '2',
-        ownerId: '7',
+        ownerId: '1',
         address: '946 Arrow St',
         city: 'Las Vegas',
         state: 'NV',
@@ -37,7 +37,7 @@ module.exports = {
       },
       {
         id: '3',
-        ownerId: '7',
+        ownerId: '1',
         address: '337 Arrow St',
         city: 'New York City',
         state: 'NY',
@@ -50,7 +50,7 @@ module.exports = {
       },
       {
         id: '4',
-        ownerId: '7',
+        ownerId: '1',
         address: '1436 Rowling Ave',
         city: 'Los Angeles',
         state: 'CA',
@@ -63,7 +63,7 @@ module.exports = {
       },
       {
         id: '5',
-        ownerId: '7',
+        ownerId: '1',
         address: '222 Burrows Lane',
         city: 'Seattle',
         state: 'WA',
@@ -76,7 +76,7 @@ module.exports = {
       },
       {
         id: '6',
-        ownerId: '7',
+        ownerId: '1',
         address: '3544 Barringstone Ave',
         city: 'Philadelphia',
         state: 'PA',
@@ -89,7 +89,7 @@ module.exports = {
       },
       {
         id: '7',
-        ownerId: '7',
+        ownerId: '1',
         address: '109 Row St',
         city: 'Boston',
         state: 'MA',
@@ -102,7 +102,7 @@ module.exports = {
       },
       {
         id: '8',
-        ownerId: '7',
+        ownerId: '1',
         address: '8793 Melody Ave',
         city: 'Orlando',
         state: 'FL',
@@ -115,7 +115,7 @@ module.exports = {
       },
       {
         id: '9',
-        ownerId: '7',
+        ownerId: '1',
         address: '407 Beech Ave.',
         city: 'Stockbridge',
         state: 'GA',
@@ -128,7 +128,7 @@ module.exports = {
       },
       {
         id: '10',
-        ownerId: '7',
+        ownerId: '1',
         address: '88 South Kirkland Drive',
         city: 'Elyria',
         state: 'OH',
@@ -141,7 +141,7 @@ module.exports = {
       },
       {
         id: '11',
-        ownerId: '7',
+        ownerId: '1',
         address: '8321 Honey Creek Dr.',
         city: 'Raleigh',
         state: 'NC',
@@ -154,7 +154,7 @@ module.exports = {
       },
       {
         id: '12',
-        ownerId: '7',
+        ownerId: '1',
         address: '8662 Courtland Street',
         city: 'Ronkonkoma',
         state: 'NY',
@@ -167,7 +167,7 @@ module.exports = {
       },
       {
         id: '13',
-        ownerId: '7',
+        ownerId: '1',
         address: '37 North Wood Street',
         city: 'East Lansing',
         state: 'MI',
@@ -180,7 +180,7 @@ module.exports = {
       },
       {
         id: '14',
-        ownerId: '7',
+        ownerId: '1',
         address: '9499 Lilac Drive',
         city: 'Greensburg',
         state: 'PA',
@@ -193,7 +193,7 @@ module.exports = {
       },
       {
         id: '15',
-        ownerId: '7',
+        ownerId: '1',
         address: '47 Arrowhead Rd.',
         city: 'Mishawaka',
         state: 'IN',
