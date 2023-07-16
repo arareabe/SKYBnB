@@ -26,7 +26,7 @@ router.get('/current', requireAuth, async (req, res, next) => {
     const starSum = await Review.sum('stars', { where: { spotId: currSpot.id } });
 
     if (!starSum) {
-      currSpot.avgRating = 'Not yet rated'
+      currSpot.avgRating = 'New'
     } else {
       currSpot.avgRating = (starSum / reviewCount).toFixed(1);
     }
@@ -85,7 +85,7 @@ router.get('/:spotId', async (req, res) => {
   const detailsRes = spotDetails.toJSON();
 
   if (!starSum) {
-    detailsRes.avgRating = 'Not yet rated'
+    detailsRes.avgRating = 'New'
   } else {
     detailsRes.avgRating = (starSum / reviewCount).toFixed(1);
     detailsRes.numReviews = reviewCount;
@@ -338,7 +338,7 @@ router.get('/', async (req, res) => {
     });
 
     if (!reviewSum) {
-      currSpot.avgRating = 'Not yet rated'
+      currSpot.avgRating = 'New'
     } else {
       currSpot.avgRating = (reviewSum / reviewCount).toFixed(1)
     };
