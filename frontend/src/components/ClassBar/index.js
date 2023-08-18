@@ -8,6 +8,9 @@ import farm100 from '../../pics/farm100.png'
 import lake100 from '../../pics/lake100.png'
 import mansion64 from '../../pics/mansion100.png'
 import room100 from '../../pics/room100.png'
+import desert from '../../pics/desert.png'
+import boat from '../../pics/boat.png'
+import dome from '../../pics/dome.png'
 import { NavLink } from "react-router-dom"
 import './ClassBar.css'
 
@@ -47,6 +50,18 @@ const ClassBar = () => {
       <NavLink className='classBarNav' to='/'>
         <img className='classBarImg' src={castle100} />
         <div>Castles</div>
+      </NavLink>
+      <NavLink className='classBarNav' to='/'>
+        <img className='classBarImg' src={desert} />
+        <div>Desert</div>
+      </NavLink>
+      <NavLink className='classBarNav' to='/'>
+        <img className='classBarImg' src={boat} />
+        <div>Boats</div>
+      </NavLink>
+      <NavLink className='classBarNav' to='/'>
+        <img className='classBarImg' src={dome} />
+        <div>Domes</div>
       </NavLink>
     </div>
   )
