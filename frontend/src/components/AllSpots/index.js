@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 import './AllSpots.css';
 
 import { getAllSpots } from '../../store/spots';
+import Classbar from '../ClassBar';
 
 const AllSpots = () => {
   const dispatch = useDispatch();
@@ -22,9 +23,7 @@ const AllSpots = () => {
 
   return (
     <div className='allSpotsWrap'>
-      {/* <div className='titlePage'>
-        <h1>Welcome to SkyBnB!</h1>
-      </div> */}
+      <Classbar />
       <div className='spotWrapper'>
         <div className='spotCards'>
           {allSpots.map(spot =>

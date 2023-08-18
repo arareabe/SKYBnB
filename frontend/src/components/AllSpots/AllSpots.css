@@ -6,8 +6,10 @@
 }
 
 .spotWrapper {
-  display: flex;
-  justify-content: center;
+  /* display: flex;
+  justify-content: center; */
+  margin-inline: auto;
+  width: 92%;
 }
 
 .allSpotsWrap {
@@ -18,7 +20,7 @@
 
 .spotCards {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   column-gap: 1rem;
   row-gap: 2.4rem;
   margin-top: 36px;
