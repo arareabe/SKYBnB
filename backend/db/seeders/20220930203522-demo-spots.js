@@ -203,6 +203,45 @@ module.exports = {
         name: 'El Coyote by River Park',
         description: 'Our home is set in beautiful Joshua Tree on over 4 acres of pristine high desert; just 3 minutes from downtown Joshua Tree and Park Blvd., leading to the national park.  Spot coyotes, jack rabbits, desert tortoises...from your bedroom!',
         price: 638
+      },
+      {
+        id: '16',
+        ownerId: '1',
+        address: '57 Charles St.',
+        city: 'Lithonia',
+        state: 'GA',
+        country: 'USA',
+        lat: 13,
+        lng: 54,
+        name: 'The Sands Beachfront Pier',
+        description: "Welcome to The Sands at Sunset Beach. Pack your bags because you discovered the perfect beach getaway right on the sand. This tranquil bo-ho chic Southern California beachfront home was professionally designed to transport you to the tropical beaches in Tulum.  From sand to sky, you'll have 4 levels of this resort-styled home to soak in the breathtaking multicolored sunsets.",
+        price: 2739
+      },
+      {
+        id: '17',
+        ownerId: '1',
+        address: '3 Woodsman St.',
+        city: 'Uniontown',
+        state: 'PA',
+        country: 'USA',
+        lat: 15,
+        lng: 40,
+        name: 'Cape Story de Woods',
+        description: "We are a stone's throw from the gorgeous Chesapeake Bay and Seashore State Park; and walking distance to delicious eats including waterfront dining, coffee, groceries, and more. Beach gear is ready!",
+        price: 90
+      },
+      {
+        id: '18',
+        ownerId: '1',
+        address: '419 Foster Lane',
+        city: 'Simpsonville',
+        state: 'SC',
+        country: 'USA',
+        lat: 29,
+        lng: 69,
+        name: 'Santa Marta de Portuzelo Castle',
+        description: 'The Castle is located 40 minutes from Porto (Francisco Sa Carneiro) airport, with a variety of cultural experiences near the city. You will love this place because of the location, the beautiful grounds and landscaping, the peaceful atmosphere and the unique construction of the house.',
+        price: 1099
       }
     ], {});
   },

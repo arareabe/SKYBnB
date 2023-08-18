@@ -83,6 +83,21 @@ module.exports = {
         url: 'https://a0.muscache.com/im/pictures/8960fbc9-d407-408e-959a-75a82675c20f.jpg',
         preview: true,
         spotId: 15
+      },
+      {
+        url: 'https://a0.muscache.com/im/pictures/45680811/f4987a12_original.jpg',
+        preview: true,
+        spotId: 16
+      },
+      {
+        url: 'https://a0.muscache.com/im/pictures/miso/Hosting-38873667/original/ae116932-28ed-40ca-bceb-945448a35ae6.jpeg',
+        preview: true,
+        spotId: 17
+      },
+      {
+        url: 'https://a0.muscache.com/im/pictures/01b56573-15ba-4d86-bab3-5f57b0088956.jpg',
+        preview: true,
+        spotId: 18
       }
     ], {});
   },
