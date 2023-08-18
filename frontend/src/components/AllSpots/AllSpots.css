@@ -6,10 +6,9 @@
 }
 
 .spotWrapper {
-  /* display: flex;
-  justify-content: center; */
   margin-inline: auto;
   width: 92%;
+  padding-bottom: 2rem;
 }
 
 .allSpotsWrap {

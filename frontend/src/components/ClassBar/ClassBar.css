@@ -1,5 +1,30 @@
 .classBarWrapper {
   display: flex;
   gap: 3rem;
-  justify-content: center;
+  justify-content: space-between;
+  padding-top: 2rem;
+  padding-bottom: 1rem;
+  /* border-bottom: 1px solid grey; */
+  /* border: 2px solid red; */
+  width: 92%;
+  margin-inline: auto;
+}
+
+.classBarImg {
+  width: 30%;
+  /* object-fit: contain; */
+  /* border: 2px solid yellow; */
+
+}
+
+.classBarNav {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: gray;
+  gap: 1rem;
+  /* border: 2px solid blue; */
+  align-items: center;
+  font-size: 0.75rem;
+
 }
