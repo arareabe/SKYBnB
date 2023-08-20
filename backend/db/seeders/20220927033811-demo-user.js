@@ -17,7 +17,8 @@ module.exports = {
         firstName: 'Demo',
         lastName: 'Man',
         username: 'Demo-lition',
-        hashedPassword: bcrypt.hashSync('password')
+        hashedPassword: bcrypt.hashSync('password'),
+        avatar: 'https://i.imgur.com/P66DeqF.png'
       },
       {
         id: '2',
@@ -25,7 +26,8 @@ module.exports = {
         firstName: 'Weenie',
         lastName: 'Hut',
         username: 'FakerUser1',
-        hashedPassword: bcrypt.hashSync('password2')
+        hashedPassword: bcrypt.hashSync('password2'),
+        avatar: 'https://i.imgur.com/Iur6NJh.png'
       },
       {
         id: '3',
@@ -33,7 +35,26 @@ module.exports = {
         firstName: 'Sky',
         lastName: 'Rim',
         username: 'FakerUser2',
-        hashedPassword: bcrypt.hashSync('password3')
+        hashedPassword: bcrypt.hashSync('password3'),
+        avatar: 'https://i.imgur.com/azeO6hB.png'
+      },
+      {
+        id: '4',
+        email: 'barney@user.io',
+        firstName: 'Barney',
+        lastName: 'Timmberly',
+        username: 'BarnesNobles',
+        hashedPassword: bcrypt.hashSync('password4'),
+        avatar: 'https://i.imgur.com/Ca1yCpB.png'
+      },
+      {
+        id: '5',
+        email: 'masterchief@user.io',
+        firstName: 'John',
+        lastName: 'Petty',
+        username: 'Spartan',
+        hashedPassword: bcrypt.hashSync('halo'),
+        avatar: 'https://i.imgur.com/iEmdvZQ.png'
       }
     ], {});
   },
