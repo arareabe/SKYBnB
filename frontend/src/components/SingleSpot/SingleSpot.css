@@ -1,4 +1,4 @@
-.singleSpotGrid {
+.singleSpotWrapper {
   display: grid;
   grid-template-rows: 49px 35px 420px 0.5fr 1fr;
   grid-template-columns: 20% 45% 35%;

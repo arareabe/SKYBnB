@@ -196,7 +196,7 @@ const SingleSpot = () => {
   if (!theSpot) return "That ain't a spot!"
 
   return (
-    <div className='singleSpotGrid'>
+    <div className='singleSpotWrapper'>
       <div className='singleSpotName'>
         <h1>{theSpot.name}</h1>
       </div>
@@ -362,7 +362,7 @@ const SingleSpot = () => {
       <div className='singleSpotDesc'>
         <div className='ownerDetails'>
           <span id='actualOwner'>{`Home hosted by ${theSpot.Owner?.firstName ? theSpot.Owner.firstName : 'Bill'}`}</span>
-          <span>6 guests · 3 bedrooms· 4 beds· 2 bath</span>
+          <span>6 guests · 3 bedrooms · 4 beds · 2 bath</span>
         </div>
 
         <div className='spotPerks'>

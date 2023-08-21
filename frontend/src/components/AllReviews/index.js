@@ -22,7 +22,7 @@ const AllReviews = ({ spotId }) => {
 
   // }, [])
 
-  // console.log("HEY THIS IS THE ALLREVIEWS ", reviewsObj);
+  console.log("HEY THIS IS THE ALLREVIEWS ", allReviews);
 
   let alreadyReviewed
   if (currUser) {
@@ -60,9 +60,9 @@ const AllReviews = ({ spotId }) => {
         {allReviews.map(review => (
           <div className='reviewBox'>
             <div className='reviewerDetails'>
-              <span>
-                <img id='skyBnbReview' src='https://i.imgur.com/yK6f0q5.jpg' />
-              </span>
+              <div className='reviewPicWrap'>
+                <img id='reviewUserPic' src={review.User.avatar} />
+              </div>
               <span id='reviewerName'>
                 {review.User?.firstName} rates this SkyBnB <i id='spotStar' className="fa-sharp fa-solid fa-star"></i>{review.stars}!
               </span>

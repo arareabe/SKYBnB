@@ -3,9 +3,19 @@
   padding-bottom: 20px;
 }
 
-#skyBnbReview {
-  width: 100px;
-  height: 100px;
+.reviewPicWrap {
+  width: 46px;
+  height: 40px;
+  border: 3px solid lightgrey;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+#reviewUserPic {
+  max-width: 100%;
+  height: 40px;
 }
 
 .reviewerDetails {
@@ -20,7 +30,7 @@
 }
 
 #actualReview {
-  font-size: 20px;
+  font-size: 0.9rem;
   font-style: italic;
   padding-left: 10px;
   font-weight: 200px;
