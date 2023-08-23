@@ -54,30 +54,39 @@
 .cardInfo {
   color: black;
   margin-top: 46px;
+  /* border: 1px solid blue; */
+  gap: 0.3rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .cardTopInfo {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin-top: 14px;
   font-weight: bold;
-  font-size: 14px;
+  font-size: 0.84rem;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  /* border: 1px solid red; */
 }
 
+#spotStarWrapper {
+  font-weight: 100;
+}
 .spotStar {
   margin-right: 14px;
 }
 
 .spotPrice {
-  margin-top: 7px;
   font-size: 14px;
+  /* border: 1px solid green; */
 }
 
 #spotName {
   color: gray;
-  margin-top: 7px;
+  font-size: 0.89rem;
+  font-weight: 100;
+  /* border: 1px solid yellow; */
 }
 
 #actualPrice{

@@ -39,7 +39,7 @@ const AllSpots = () => {
                     <div>
                       {spot.city}, {spot.state}
                     </div>
-                    <div>
+                    <div id='spotStarWrapper'>
                       <i id='spotStar' className="fa-sharp fa-solid fa-star"></i>
                       {spot.avgRating}
                     </div>
