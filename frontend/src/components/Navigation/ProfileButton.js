@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 import * as sessionActions from '../../store/session';
 import './ProfileButton.css';
 import menu50 from '../../pics/menu50.png'
+import user50 from '../../pics/user50.png'
 
 function ProfileButton({ user, setLogin, setShowModal }) {
   const dispatch = useDispatch();
@@ -37,7 +38,7 @@ function ProfileButton({ user, setLogin, setShowModal }) {
     <>
       <button className='userButton' onClick={openMenu}>
         <img src={menu50} id='userButtonMenu' />
-        <img src={user?.avatar} id='userButtonPic' />
+        <img  id='userButtonPic' src={!user?.avatar ? user50 : user?.avatar} />
       </button>
       {showMenu && (user ?
         (<ul className="profile-dropdown">
