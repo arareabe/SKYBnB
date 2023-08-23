@@ -33,6 +33,10 @@
   padding: 10px;
 }
 
+#submitButton:hover {
+  cursor: pointer;
+}
+
 #reviewStarsTop {
   font-size: 20px;
 }

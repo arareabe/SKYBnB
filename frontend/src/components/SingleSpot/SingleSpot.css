@@ -137,6 +137,10 @@
   margin-bottom: 14px;
 }
 
+.singleUserEditDelete:hover {
+  cursor:pointer;
+}
+
 .react-daterange-picker {
   display: inline-flex;
   position: relative;

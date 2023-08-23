@@ -37,6 +37,10 @@
   padding: 3.5px;
 }
 
+.profileButtons:hover {
+  cursor: pointer;
+}
+
 #profile-button-name {
   text-decoration: none;
   color: black;
