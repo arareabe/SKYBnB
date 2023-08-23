@@ -15,7 +15,6 @@
   display: flex;
   justify-content: space-between;
   margin: 21px 105px 14px;
-  width: 210px;
   align-items: center;
 }
 
@@ -25,7 +24,7 @@
 
 #actualHostLink {
   text-decoration: none;
-  color: lightcoral;
+  color: #FF5A5F;
 }
 
 .navBarSearchWrapper {

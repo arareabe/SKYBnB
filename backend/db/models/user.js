@@ -8,8 +8,8 @@ const bcrypt = require('bcryptjs');
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     toSafeObject() {
-      const { id, firstName, lastName, username, email } = this;
-      return { id, firstName, lastName, username, email };
+      const { id, firstName, lastName, username, email, avatar } = this;
+      return { id, firstName, lastName, username, email, avatar };
     }
     validatePassword(password) {
       return bcrypt.compareSync(password, this.hashedPassword.toString());

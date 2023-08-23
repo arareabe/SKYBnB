@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { NavLink } from "react-router-dom";
 import * as sessionActions from '../../store/session';
 import './ProfileButton.css';
+import menu50 from '../../pics/menu50.png'
 
 function ProfileButton({ user, setLogin, setShowModal }) {
   const dispatch = useDispatch();
@@ -14,6 +15,7 @@ function ProfileButton({ user, setLogin, setShowModal }) {
   };
 
   useEffect(() => {
+    console.log('FROZONE', user)
     if (!showMenu) return;
 
     const closeMenu = () => {
@@ -30,10 +32,12 @@ function ProfileButton({ user, setLogin, setShowModal }) {
     dispatch(sessionActions.logout());
   };
 
+
   return (
     <>
       <button className='userButton' onClick={openMenu}>
-        <i className="fa-solid fa-user" />
+        <img src={menu50} id='userButtonMenu' />
+        <img src={user?.avatar} id='userButtonPic' />
       </button>
       {showMenu && (user ?
         (<ul className="profile-dropdown">

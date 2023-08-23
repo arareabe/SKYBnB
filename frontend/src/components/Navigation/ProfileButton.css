@@ -1,9 +1,18 @@
 .userButton {
-  width: 56px;
-  height: 35px;
-  border-radius: 20px;
+  max-width: 5.5rem;
+  min-height: 1.2rem;
+  border-radius: 21px;
   background-color: white;
-  border: 3px solid lightgrey;
+  border: 2px solid lightgrey;
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  margin-left: 1rem;
+  align-items: center;
+}
+
+.userButton:hover {
+  cursor: pointer;
 }
 
 .profile-dropdown {
@@ -14,15 +23,15 @@
   align-items: flex-start;
   padding-left: 14px;
   padding-right: 14px;
-  height: 77px;
+  height: 100%;
   justify-content: space-evenly;
-  border-radius: 25px;
-  background-color: lightgrey;
-  color: white;
+  border-radius: 12px;
+  color: black;
+  background-color: white;
 }
 
 .profileButtons {
-  background: lightcoral;
+  background: #FF5A5F;
   color: white;
   border-radius: 25px;
   padding: 3.5px;
@@ -30,5 +39,17 @@
 
 #profile-button-name {
   text-decoration: none;
-  color: white;
+  color: black;
+}
+
+#userButtonPic {
+  max-width: 100%;
+  height: 1.5rem;
+  /* border: 1px solid blue; */
+}
+
+#userButtonMenu {
+  max-width: 35%;
+  height: 1.2rem;
+  /* border: 1px solid red */
 }
