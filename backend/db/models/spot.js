@@ -18,6 +18,14 @@ module.exports = (sequelize, DataTypes) => {
           }
       );
 
+      Spot.belongsTo(
+        models.Class,
+        {
+          foreignKey: 'classId',
+          as: 'Class'
+        }
+      )
+
       Spot.hasMany(
         models.SpotImage,
           { foreignKey: 'spotId', onDelete: 'CASCADE', hooks: true }

@@ -22,6 +22,14 @@ module.exports = {
         },
         onDelete: 'cascade'
       },
+      classId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Classes',
+          key: 'id'
+        },
+        onDelete: 'cascade'
+      },
       address: {
         type: Sequelize.STRING,
         unique: true,
