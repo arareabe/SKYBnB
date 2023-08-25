@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import home100 from '../../pics/home100.png'
 import beach64 from '../../pics/beach100.png'
 import cabin64 from '../../pics/cabin100.png'
@@ -13,56 +13,25 @@ import boat from '../../pics/boat.png'
 import dome from '../../pics/dome.png'
 import { NavLink } from "react-router-dom"
 import './ClassBar.css'
+import { getAllClasses } from "../../store/classes";
 
 const ClassBar = () => {
   const dispatch = useDispatch();
 
+  const allClasses = useSelector((state) => Object.values(state.classes.allClasses))
+
+  useEffect(() => {
+    dispatch(getAllClasses())
+  }, [dispatch])
+
   return (
     <div className='classBarWrapper'>
-      <NavLink className='classBarNav' to='/'>
-        <img className='classBarImg' src={room100} />
-        <div>Rooms</div>
-      </NavLink>
-      <NavLink className='classBarNav' to='/'>
-        <img className='classBarImg' src={beach64} />
-        <div>Beachfront</div>
-      </NavLink>
-      <NavLink className='classBarNav' to='/'>
-        <img className='classBarImg' src={home100} />
-        <div>Homes</div>
-      </NavLink>
-      <NavLink className='classBarNav' to='/'>
-        <img className='classBarImg' src={cabin64} />
-        <div>Cabins</div>
-      </NavLink>
-      <NavLink className='classBarNav' to='/'>
-        <img className='classBarImg' src={lake100} />
-        <div>Lakefront</div>
-      </NavLink>
-      <NavLink className='classBarNav' to='/'>
-        <img className='classBarImg' src={mansion64} />
-        <div>Mansions</div>
-      </NavLink>
-      <NavLink className='classBarNav' to='/'>
-        <img className='classBarImg' src={farm100} />
-        <div>Farms</div>
-      </NavLink>
-      <NavLink className='classBarNav' to='/'>
-        <img className='classBarImg' src={castle100} />
-        <div>Castles</div>
-      </NavLink>
-      <NavLink className='classBarNav' to='/'>
-        <img className='classBarImg' src={desert} />
-        <div>Desert</div>
-      </NavLink>
-      <NavLink className='classBarNav' to='/'>
-        <img className='classBarImg' src={boat} />
-        <div>Boats</div>
-      </NavLink>
-      <NavLink className='classBarNav' to='/'>
-        <img className='classBarImg' src={dome} />
-        <div>Domes</div>
-      </NavLink>
+      {allClasses.map(clas => {
+        return <NavLink className='classBarNav' to='/'>
+          <img className='classBarImg' src={clas.pic} />
+          <div>{clas.class}</div>
+        </NavLink>
+      })}
     </div>
   )
 
