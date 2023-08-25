@@ -31,6 +31,15 @@ export const getAllClasses = () => async dispatch => {
   }
 }
 
+export const getAllClaspot = (classId) => async dispatch => {
+  const res = await csrfFetch(`/api/classes/${classId}`)
+
+  if (res.ok) {
+    const allClaspot = await res.json();
+    dispatch(loadClaspot(allClaspot));
+    return allClaspot;
+  }
+}
 // REDUCE ME
 const initialState = {
   allClasses: {},
@@ -45,6 +54,12 @@ const classesReducer = (state = initialState, action) => {
         classesState.allClasses[clas.id] = clas
       })
       return classesState;
+    case READ_CLASPOT:
+      const claspotState = { allClasses: {}, allClaspot: {} };
+      action.payload.Spots.forEach(claspot => {
+        claspotState.allClaspot[claspot.id] = claspot
+      })
+      return claspotState
     default:
       return state;
   }

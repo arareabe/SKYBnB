@@ -12,7 +12,7 @@ router.get('/', async (req, res) => {
   return res.json({ Classes: classes })
 });
 
-// Get All Questions by Class ID
+// Get All Spots by Class ID
 router.get('/:classId', async (req, res) => {
   const spots = await Spot.findAll({
     where: {

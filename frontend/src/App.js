@@ -10,6 +10,7 @@ import CreateASpotForm from './components/CreateASpotForm';
 import EditSpotForm from "./components/EditSpotForm";
 import User from "./components/User";
 import Seaque from './components/Seaque';
+import Claspot from "./components/Claspot";
 
 function App() {
   const dispatch = useDispatch();
@@ -44,6 +45,9 @@ function App() {
           </Route>
           <Route path='/spots/:spotId'>
             <SingleSpot />
+          </Route>
+          <Route path='/classes/:class'>
+            <Claspot />
           </Route>
         </Switch>
       )}
