@@ -9,8 +9,6 @@ const { Op, Model } = require('sequelize');
 // Get all Spots from search results
 router.get('/:searchWord', async (req, res) => {
 
-  console.log("POOOOOOOOOOOOOOOOOOOp", req.params.searchWord)
-
   const spots = await Spot.findAll({
     where: {
       [Op.or]: [

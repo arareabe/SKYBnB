@@ -46,7 +46,7 @@ function App() {
           <Route path='/spots/:spotId'>
             <SingleSpot />
           </Route>
-          <Route path='/classes/:class'>
+          <Route path='/classes/:class/:classId'>
             <Claspot />
           </Route>
         </Switch>

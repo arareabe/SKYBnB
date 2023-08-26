@@ -16,7 +16,7 @@ function ProfileButton({ user, setLogin, setShowModal }) {
   };
 
   useEffect(() => {
-    console.log('FROZONE', user)
+    // console.log('FROZONE', user)
     if (!showMenu) return;
 
     const closeMenu = () => {

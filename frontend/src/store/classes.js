@@ -25,7 +25,7 @@ export const getAllClasses = () => async dispatch => {
 
   if (res.ok) {
     const allClasses = await res.json();
-    console.log('THIS IS THE TRUE CLAS', allClasses)
+    // console.log('THIS IS THE TRUE CLAS', allClasses)
     dispatch(loadClasses(allClasses))
     return allClasses;
   }
@@ -36,6 +36,7 @@ export const getAllClaspot = (classId) => async dispatch => {
 
   if (res.ok) {
     const allClaspot = await res.json();
+    console.log("O BOOOOOI", allClaspot)
     dispatch(loadClaspot(allClaspot));
     return allClaspot;
   }
@@ -49,13 +50,13 @@ const initialState = {
 const classesReducer = (state = initialState, action) => {
   switch (action.type) {
     case READ_CLASSES:
-      const classesState = { ...state, allClasses: { ...state.allClasses } };
+      const classesState = { ...state, allClasses: { ...state.allClasses }, allClaspot: { ...state.allClaspot } };
       action.payload.Classes.forEach(clas => {
         classesState.allClasses[clas.id] = clas
       })
       return classesState;
     case READ_CLASPOT:
-      const claspotState = { allClasses: {}, allClaspot: {} };
+      const claspotState = { allClasses: { ...state.allClasses }, allClaspot: {} };
       action.payload.Spots.forEach(claspot => {
         claspotState.allClaspot[claspot.id] = claspot
       })

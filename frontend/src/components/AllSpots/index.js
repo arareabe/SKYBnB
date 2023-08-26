@@ -15,10 +15,6 @@ const AllSpots = () => {
     dispatch(getAllSpots())
   }, [dispatch]);
 
-  useEffect(() => {
-    console.log(allSpots);
-  })
-
   if (!allSpots) return 'Loading all available spots!...'
 
   return (
@@ -27,9 +23,8 @@ const AllSpots = () => {
       <div className='spotWrapper'>
         <div className='spotCards'>
           {allSpots.map(spot =>
-            <div className='spotCard'>
-              {console.log('THIS IS THE SPOT ', typeof spot === 'object', spot)}
-              <NavLink className='spotLink' to={`/spots/${spot.id}`}>
+            <div key={spot.id} className='spotCard'>
+              <NavLink className='spotLink'  to={`/spots/${spot.id}`}>
                 <div className='imageDiv'>
                   <img src={spot.previewImage} className='image'></img>
                 </div>

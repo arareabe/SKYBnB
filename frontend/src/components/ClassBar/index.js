@@ -27,7 +27,7 @@ const ClassBar = () => {
   return (
     <div className='classBarWrapper'>
       {allClasses.map(clas => {
-        return <NavLink to={`/classes/${clas.class}`} className='classBarNav' key={clas.id}>
+        return <NavLink to={`/classes/${clas.class}/${clas.id}`} className='classBarNav' key={clas.id}>
           <img className='classBarImg' src={clas.pic} />
           <div>{clas.class}</div>
         </NavLink>

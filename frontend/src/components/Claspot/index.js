@@ -2,32 +2,35 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
-import { getAllSpots } from '../../store/spots';
+import { getAllClaspot } from '../../store/classes';
 import Classbar from '../ClassBar';
+import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
+import '../AllSpots/AllSpots.css'
 
-const Claspot = () => {
+const Claspot = (props) => {
   const dispatch = useDispatch();
+  const { classId } = useParams();
 
-  const allSpots = useSelector(state => Object.values(state.spots.allSpots));
-
-  useEffect(() => {
-    dispatch(getAllSpots())
-  }, [dispatch]);
+  const allClaspot = useSelector(state => Object.values(state.classes.allClaspot));
 
   useEffect(() => {
-    console.log("WOOT THIS IS NEW");
+    dispatch(getAllClaspot(classId))
+  }, [dispatch, classId]);
+
+  useEffect(() => {
+    // console.log("WOOT THIS IS NEW", classId);
+    // console.log("DAAAAAMn", allClaspot)
   })
 
-  if (!allSpots) return 'Loading all available spots!...'
+  if (!allClaspot) return 'Loading all available spots!...'
 
   return (
     <div className='allSpotsWrap'>
       <Classbar />
       <div className='spotWrapper'>
         <div className='spotCards'>
-          {allSpots.map(spot =>
+          {allClaspot.map(spot =>
             <div className='spotCard'>
-              {console.log('THIS IS THE SPOT ', typeof spot === 'object', spot)}
               <NavLink className='spotLink' to={`/spots/${spot.id}`}>
                 <div className='imageDiv'>
                   <img src={spot.previewImage} className='image'></img>
